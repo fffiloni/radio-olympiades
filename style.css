@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+
+body{
+  margin: 0;
+  background: black;
+}
+
+div#medaillon h3{
+  font-family:'Permanent Marker';
+  color: white;
+  font-size: 20px;
+}
+
+div#bg{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1579285116824-28d564f1f051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3667&q=80');
+  background-size: cover; 
+  background-position-y: center;
+  transform: scale(1.3);
+}
+
+div#title{
+  flex: 1;
+  font-family:'Permanent Marker';
+  color: white;
+  margin-right: 30px;
+  text-align: center; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+div#title h1{
+  line-height:120px;
+  font-size: 120px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+div#title p {
+  display: block;
+  width: 800px;
+  padding: 13px 0;
+  font-family: monospace;
+  font-size: 20px;
+  background-color: black; 
+}
+
+div#main {
+  position: relative;
+  height:100vh;
+  display: flex;
+  flex-direction: row;  
+  /*backdrop-filter: grayscale(1);*/
+}
+
+div#player-container {  
+  padding: 0 50px 10px;
+  width: 50vw;
+  max-width: 500px;
+}
+
+#idFrame{
+  backdrop-filter: grayscale(0) blur(5px);
+}
+
+div#tracks-container { 
+  padding: 0px 50px;
+  width: 50vw;
+  width: 500px;
+}
+
+.rk_widget_tracks_broadcast {
+  padding: 20px;
+  font-family: sans-serif;
+  font-size: 12px;
+  background: #f3f3f3e8;
+  border-radius: 5px;
+  backdrop-filter: grayscale(1) blur(5px);
+}
+
+div#content{
+  margin-left: 140px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div#box-2{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+}
+
+.fb-like.fb_iframe_widget {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.socials a {
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* TABS */
+
+.tab{
+  cursor: pointer;
+  padding:10px 20px;
+  margin:0px 2px;
+  background:#00000094;
+  display:inline-block;
+  color:#fff;
+  border-radius:3px 3px 0px 0px;
+  
+}
+.panels {
+    background: #fffffff6;
+    
+    width: 500px;
+    height: 564px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.panel{
+  display:none;
+  animation: fadein .8s;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold;
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+  background:#fffffff6;
+  color:#000;
+}
+
+iframe#AudioDedication {
+    flex: 1;
+    width: 90%;
+    height: 90%;
+    border-radius: 0!important;
+    padding: 20px;
+}
+
+div#two-panel {
+    height: 100%; 
+    background: #f3f3f3e8;
+    
+    
+}
+
+div#three-panel {
+    height: 100%;
+    /*width: 100%;*/
+    background: #f3f3f3e8;
+    
+}
+
+div.test {
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -135px;
+    position: relative;
+}
+
+.record{
+  margin-top: 0px !important;
+}
+
+div#concert-title {
+    font-family: 'Permanent Marker';
+    font-size: 58px;
+    position: relative;
+    z-index: 10;
+    background: white;
+    width: 500px;
+    margin-top: 0px;
+    display: flex;
+    height: 135px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabs {
+    font-size: 10px;
+    font-family: sans-serif;
+    text-align: center;
+}
