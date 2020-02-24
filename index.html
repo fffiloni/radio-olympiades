@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Radio Olympiades</title>
+  <meta name="description" content="Radio Olympiades">
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+  <div id="bg"></div>
+<div id=main>
+  <div id="content">
+    
+  
+    <div id="player-container">
+      <iframe src="https://www.radioking.com/widgets/player/player.php?id=13753&c=%23c12929&c2=%23ffffff&ii=&p=1&pp=1&i=1&eq=1&po=1&t=1&f=h&v=2&s=0&li=1&h=100&l=100&a=1&plc=0&popup=0&fullsize" name="idFrame" id="idFrame" style="border-radius: 5px; width:100%;height:145px; min-width: 470px;" frameBorder="0"></iframe>
+    </div>
+
+    <div id="tracks-container">
+      <input class="radio" id="one" name="group" type="radio" checked>
+      <input class="radio" id="two" name="group" type="radio">
+      <input class="radio" id="three" name="group" type="radio">
+
+      <div class="tabs">
+        <label class="tab" id="one-tab" for="one"><i class="fas fa-list"></i>&nbsp;&nbsp;Playlist</label>
+        <label class="tab" id="two-tab" for="two"><i class="fas fa-microphone-alt"></i>&nbsp;&nbsp;Paroles</label>
+        <label class="tab" id="three-tab" for="three"><i class="fas fa-fire-alt"></i>&nbsp;&nbsp;Concerts</label>
+      </div>
+
+      <div class="panels">
+
+        <div class="panel" id="one-panel">
+          <div class="rk_widget_tracks_broadcast" data-idradio="13753" data-nbtracks="8" data-disabledatepicker="1"></div>      
+        </div>
+
+        <div class="panel" id="two-panel">
+          <div class="test record">
+          <iframe id="AudioDedication" allow="microphone" width="265" height="365" style="border-radius: 8px;" src="https://www.radioking.com/widgets/audio-recorder/audiorecorder.php?k=13753" frameBorder="0"></iframe>
+          </div>
+        </div>
+
+        <div class="panel" id="three-panel">
+          <div id="concert-title"><h3>CONCERTS</h3></div>
+          <div class="test">
+            
+            <div class="fb-page" data-href="https://www.facebook.com/lenouvocosmos75013/" data-tabs="events" data-width="490" data-height="554" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/lenouvocosmos75013/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/lenouvocosmos75013/">Lenouvô Cosmos</a></blockquote></div>
+            
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    
+  </div>
+  
+  <div id="title">
+    
+    <h1>Radio<br />Olympiades</h1>
+    <p>Le son de Paris 13eme, résolument moderne et multiculturel. </p>
+    <span class="socials"><a href="https://www.facebook.com/RadioOlympiades/" target="_blank"><i class="fab fa-facebook"></i></a> <a href="https://www.twitter.com/ROlympiades/" target="_blank"><i class="fab fa-twitter"></i></a> <a href="https://soundcloud.com/radioolympiades" target="_blank"><i class="fab fa-soundcloud"></i></a></span>
+    <div class="fb-like" data-href="https://www.facebook.com/radioolympiades/" data-width="" data-layout="button_count" data-action="recommend" data-size="small" data-share="false"></div>
+  </div>
+  
+  </div>
+
+
+
+<script type="text/javascript" src="https://www.radioking.com/widgets/tracks-broadcast/script.min.js"></script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v6.0&appId=268579896654911&autoLogAppEvents=1"></script>
+</body>
+</html>
