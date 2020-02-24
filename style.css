@@ -233,3 +233,7 @@ div#signature{
   font-family: monospace;
   color: grey;
 }
+
+.fa-heart{
+  color: #e95670;
+}
