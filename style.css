@@ -154,12 +154,14 @@ div#box-2{
 }
 #one:checked ~ .panels #one-panel,
 #two:checked ~ .panels #two-panel,
-#three:checked ~ .panels #three-panel{
+#three:checked ~ .panels #three-panel,
+#four:checked ~ .panels #four-panel{
   display:block
 }
 #one:checked ~ .tabs #one-tab,
 #two:checked ~ .tabs #two-tab,
-#three:checked ~ .tabs #three-tab{
+#three:checked ~ .tabs #three-tab,
+#four:checked ~ .tabs #four-tab{
   background:#fffffff6;
   color:#000;
 }
@@ -172,7 +174,7 @@ iframe#AudioDedication {
     padding: 20px;
 }
 
-div#two-panel {
+div#two-panel, div#four-panel {
     height: 100%; 
     background: #f3f3f3e8;
     
@@ -197,9 +199,10 @@ div.test {
     position: relative;
 }
 
-.record{
+.record, .podcasts{
   margin-top: 0px !important;
 }
+
 
 div#concert-title {
     font-family: 'Permanent Marker';
