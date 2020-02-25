@@ -19,7 +19,10 @@ function randombg(){
                  "url('https://img.over-blog-kiwi.com/0/92/37/67/20140208/ob_990ff6_dsc04176.JPG')",
                  "url('https://lh4.googleusercontent.com/proxy/4rYCQaPUd6emg6xOlvph9YZu2PpjyC7h6nFBK49xHLWRAsu4nA5I-mWznCD19sZKWUETQtAq_pN1_M-agPIOTA3XcNxh2ombWFwMZ6nSjRFs1nBj1spnAMzHH_x3V3uMvW8')",
                  "url('https://cdn-www.konbini.com/fr/files/2015/11/Konbini-Xport-7-sur-17-810x455.jpg')",
-                 "url('https://live.staticflickr.com/7764/18129569918_cdcd530e42_b.jpg')"];
+                 "url('https://live.staticflickr.com/7764/18129569918_cdcd530e42_b.jpg')",
+                 "url('/images/Olympiades-1.jpg')",
+                 "url('/images/Olympiades-2.jpg')",
+                 "url('/images/Olympiades-3.jpg')"];
   document.getElementById("bg").style.backgroundImage=bigSize[random];
   $('#bg').fadeIn(1000);
 }
