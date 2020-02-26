@@ -79,11 +79,43 @@ function buttonClickGET() {
 var callBackGetSuccess = function(data) {
   let meteoIcon = "Ciel";
   
-    var element = document.getElementById("zone_meteo");
+  var element = document.getElementById("zone_meteo");
+
+    if (data.weather[0].icon == "01d"){
+      element.innerHTML = "<i class=\"fas fa-sun\"></i> " + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "02d"){
+      element.innerHTML = "<i class=\"fas fa-clouds-sun\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "03d"){
+      element.innerHTML = "<i class=\"fas fa-cloud\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "04d" || data.weather[0].icon == "04n"){
+      element.innerHTML = "<i class=\"fas fa-clouds\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "09d"){
+      element.innerHTML = "<i class=\"fas fa-cloud-showers\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "10d"){
+      element.innerHTML = "<i class=\"fas fa-cloud-sun-rain\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "11d" || data.weather[0].icon == "11n"){
+      element.innerHTML = "<i class=\"fas fa-thunderstorm\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "13d" || data.weather[0].icon == "13n"){
+      element.innerHTML = "<i class=\"fas fa-snowflakes\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "50d" || data.weather[0].icon == "50n"){
+      element.innerHTML = "<i class=\"fas fa-fog\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "01n"){
+      element.innerHTML = "<i class=\"fas fa-moon\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "02n"){
+      element.innerHTML = "<i class=\"fas fa-cloud-moon\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "03n"){
+      element.innerHTML = "<i class=\"fas fa-clouds-moon\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "09n"){
+      element.innerHTML = "<i class=\"fas fa-cloud-moon-rain\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    } else if (data.weather[0].icon == "10n"){
+      element.innerHTML = "<i class=\"fas fa-cloud-moon-rain\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+    }
+  
+    
   
     //element.innerHTML = "<i class=\"fas " + meteoIcon + "\"></i> " + "  " + Math.floor(data.main.temp) + "°C";
   //element.innerHTML = "<img src=\"https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png\" />" + "  " + Math.floor(data.main.temp) + "°C ";
-  element.innerHTML = data.weather[0].description + ",  " + Math.floor(data.main.temp) + "°C ";
+  //element.innerHTML = data.weather[0].description + ",  " + Math.floor(data.main.temp) + "°C ";
 }
 
 window.onload = function() {
