@@ -15,7 +15,7 @@ function randombg(){
                  "url('https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/69968969_2099363037038218_2297643061947138048_o.jpg?_nc_cat=107&_nc_ohc=SDoO5ejrUb4AX_AYHqz&_nc_ht=scontent-cdg2-1.xx&oh=4841c86c30a6e7801b0cc59d20543c43&oe=5EC0062D')",
                  "url('https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/69770657_2099368767037645_564089601518469120_o.jpg?_nc_cat=103&_nc_ohc=o26aF3zxUtIAX-jx5Ow&_nc_ht=scontent-cdt1-1.xx&oh=e08d3c2fbebd055a50d722000af4c03c&oe=5F032D59')",
                  "url('https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/69770657_2099368767037645_564089601518469120_o.jpg?_nc_cat=103&_nc_ohc=o26aF3zxUtIAX-jx5Ow&_nc_ht=scontent-cdt1-1.xx&oh=e08d3c2fbebd055a50d722000af4c03c&oe=5F032D59')",
-                 "url('http://www.paristoric.com/images/iconographie/Arrond-13/paris_13_dalle_olympiades_2.jpg')",
+                 "url('https://www.paristoric.com/images/iconographie/Arrond-13/paris_13_dalle_olympiades_2.jpg')",
                  "url('https://img.over-blog-kiwi.com/0/92/37/67/20140208/ob_990ff6_dsc04176.JPG')",
                  "url('https://lh4.googleusercontent.com/proxy/4rYCQaPUd6emg6xOlvph9YZu2PpjyC7h6nFBK49xHLWRAsu4nA5I-mWznCD19sZKWUETQtAq_pN1_M-agPIOTA3XcNxh2ombWFwMZ6nSjRFs1nBj1spnAMzHH_x3V3uMvW8')",
                  "url('https://cdn-www.konbini.com/fr/files/2015/11/Konbini-Xport-7-sur-17-810x455.jpg')",
@@ -32,7 +32,7 @@ function changeBackgroundSmoothly() {
     $('#bg').fadeOut(500, randombg); //this is new, will fade out smoothly
 }
 
-setInterval(changeBackgroundSmoothly, 60000);
+
 
 
 function affichZero(nombre) {
@@ -59,13 +59,11 @@ document.getElementById('heure_exacte').innerHTML = ' ' + affichZero(infos.getHo
 
 // Pour actualiser l'heure chaque minutes, on rappelle la fonction dateEtHeure()
 // toutes les 100 millisecondes, donc toutes les secondes
-window.onload = function() {
-setInterval("dateEtHeure()", 100);
-};
+
 
 
 function buttonClickGET() {
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&appid=c21a75b667d6f7abb81f118dcf8d4611&units=metric"
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&appid=c1757c27d772cee9f41b55ded018a08f&units=metric&lang=fr";
 
     $.get(url, callBackGetSuccess).done(function() {
         //alert( "second success" );
@@ -79,8 +77,18 @@ function buttonClickGET() {
 }
 
 var callBackGetSuccess = function(data) {
+  let meteoIcon = "Ciel";
+  
     var element = document.getElementById("zone_meteo");
-    element.innerHTML = "  " + Math.floor(data.main.temp) + "°C";
+  
+    //element.innerHTML = "<i class=\"fas " + meteoIcon + "\"></i> " + "  " + Math.floor(data.main.temp) + "°C";
+  //element.innerHTML = "<img src=\"https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png\" />" + "  " + Math.floor(data.main.temp) + "°C ";
+  element.innerHTML = data.weather[0].description + ",  " + Math.floor(data.main.temp) + "°C ";
 }
 
-setInterval("buttonClickGET()", 100*60*60);
+window.onload = function() {
+setInterval(dateEtHeure, 100);
+setInterval(changeBackgroundSmoothly, 60000);
+};
+buttonClickGET();
+setInterval(buttonClickGET, 100*60*10);
