@@ -1,5 +1,5 @@
 function randombg(){
-  var random= Math.floor(Math.random() * 23) + 0;
+  var random= Math.floor(Math.random() * 24) + 0;
   var bigSize = ["url('https://images.unsplash.com/photo-1579285116824-28d564f1f051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3667&q=80')",
                  "url('https://images.unsplash.com/photo-1579287162052-a3f4f09986ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3675&q=80')",
                  "url('https://images.unsplash.com/photo-1579365977469-f2fab151363b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3675&q=80')",
@@ -22,7 +22,8 @@ function randombg(){
                  "url('https://live.staticflickr.com/7764/18129569918_cdcd530e42_b.jpg')",
                  "url('/images/Olympiades-1.jpg')",
                  "url('/images/Olympiades-2.jpg')",
-                 "url('/images/Olympiades-3.jpg')"];
+                 "url('/images/Olympiades-3.jpg')",
+                 "url('https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/80422265_601627277252149_8204709706326923222_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=0gZmNg3BE9EAX8zBp4G&oh=37ce5f8bf2654d5ebfc29a35f1566f7c&oe=5E8C14A3')"];
   document.getElementById("bg").style.backgroundImage=bigSize[random];
   $('#bg').fadeIn(1000);
 }
@@ -32,3 +33,54 @@ function changeBackgroundSmoothly() {
 }
 
 setInterval(changeBackgroundSmoothly, 60000);
+
+
+function affichZero(nombre) {
+// cette fonction prend en paramètre un nombre
+// si ce nombre est inférieur à 10, on affiche 0 + ce nombre
+// Ex: il est 07h00
+return nombre < 10 ? '0' + nombre : nombre;
+}
+function dateEtHeure() {
+// Cette fonction fait deux choses :
+// 1 - Elle construit une constante avec l'objet Date()
+// qui renvoie (année, mois, jour, heure, minutes, seconde, millisecondes)
+// tout ça est dans l'objet infos
+
+const infos = new Date();
+
+// 2 - La fonction attribue du texte au div id="heure_exacte"
+// ce texte n'est autre que l'heure contenue dans l'objet infos
+// on ne souhaite afficher que l'heure et les minutes avec infos.getHours()
+// et infos.getMinutes(), On Sépare par ":" Ex: il est 07:00.
+
+document.getElementById('heure_exacte').innerHTML = ' ' + affichZero(infos.getHours()) + ':' + affichZero(infos.getMinutes());
+}// Fin fonction dateEtHeure
+
+// Pour actualiser l'heure chaque minutes, on rappelle la fonction dateEtHeure()
+// toutes les 100 millisecondes, donc toutes les secondes
+window.onload = function() {
+setInterval("dateEtHeure()", 100);
+};
+
+
+function buttonClickGET() {
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=Paris,fr&appid=c21a75b667d6f7abb81f118dcf8d4611&units=metric"
+
+    $.get(url, callBackGetSuccess).done(function() {
+        //alert( "second success" );
+      })
+      .fail(function() {
+        //alert( "error" );
+      })
+      .always(function() {
+        //alert( "finished" );
+      });
+}
+
+var callBackGetSuccess = function(data) {
+    var element = document.getElementById("zone_meteo");
+    element.innerHTML = "  " + Math.floor(data.main.temp) + "°C";
+}
+
+setInterval("buttonClickGET()", 100*60*60);
