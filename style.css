@@ -250,3 +250,8 @@ span#heure_exacte, span#zone_meteo{
   font-size: 6px;
   vertical-align: super;
 }
+
+#zone_meteo > img {
+    vertical-align: middle;
+  margin: 0 -16px;
+}
