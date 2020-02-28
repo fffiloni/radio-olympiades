@@ -23,6 +23,11 @@ function randombg(){
                  "url('/images/Olympiades-1.jpg')",
                  "url('/images/Olympiades-2.jpg')",
                  "url('/images/Olympiades-3.jpg')",
+                 "url('/images/Olympiades-6.jpg')",
+                 "url('/images/Olympiades-7.jpg')",
+                 "url('/images/Olympiades-8.jpg')",
+                 "url('/images/Olympiades-9.jpg')",
+                 "url('/images/Olympiades-10.jpg')",
                  "url('https://scontent-cdt1-1.cdninstagram.com/v/t51.2885-15/e35/p1080x1080/80422265_601627277252149_8204709706326923222_n.jpg?_nc_ht=scontent-cdt1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=0gZmNg3BE9EAX8zBp4G&oh=37ce5f8bf2654d5ebfc29a35f1566f7c&oe=5E8C14A3')"];
   document.getElementById("bg").style.backgroundImage=bigSize[random];
   $('#bg').fadeIn(1000);
