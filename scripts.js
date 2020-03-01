@@ -109,7 +109,7 @@ var callBackGetSuccess = function(data) {
     } else if (data.weather[0].icon == "02n"){
       element.innerHTML = "<i class=\"fas fa-cloud-moon\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
     } else if (data.weather[0].icon == "03n"){
-      element.innerHTML = "<i class=\"fas fa-clouds-moon\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+      element.innerHTML = "<i class=\"fas fa-cloud-moon\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
     } else if (data.weather[0].icon == "09n"){
       element.innerHTML = "<i class=\"fas fa-cloud-moon-rain\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
     } else if (data.weather[0].icon == "10n"){
