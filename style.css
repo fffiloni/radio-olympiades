@@ -255,3 +255,29 @@ span#heure_exacte, span#zone_meteo{
     vertical-align: middle;
   margin: 0 -16px;
 }
+
+/*TRACKLIST BEHAVIOR*/
+
+div#rk-played-tracks-tracks-table {
+    margin-top: 10px;
+}
+
+.src-components-played-tracks__form--2aOmz{
+  display: none!important;
+}
+
+div#one-panel{
+  overflow: scroll;
+}
+
+.src-components-played-tracks__articleCard--3jr8S{
+  min-height: 540px;
+}
+
+.src-components-played-tracks__track-line--mu9aj{
+  padding: 10px 0 !important;
+}
+
+.src-components-played-tracks__title-block--2G-Dw {
+    margin-top: 6px!important;
+}
