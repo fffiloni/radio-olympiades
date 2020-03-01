@@ -129,3 +129,12 @@ setInterval(changeBackgroundSmoothly, 60000);
 };
 buttonClickGET();
 setInterval(buttonClickGET, 100*60*10);
+
+
+   function load_tracklist()
+   {
+      var container= document.getElementById('one-panel');
+      container.innerHTML = "<iframe id=\"iframe-tracklist\" src=\"https://www.radioolympiades.fr/tracklist.html\"></iframe>";
+   }
+load_tracklist()
+   setInterval(load_tracklist, 60000);
