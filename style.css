@@ -282,3 +282,25 @@ iframe#iframe-tracklist {
     margin: -8px;
     overflow: hidden;
 }
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+  
+    div#tracks-container {
+      padding: 0px 26px;
+      width: 500px;
+    }
+    
+    div#player-container {
+      padding: 0 26px 10px;
+      max-width: 500px;
+    }
+    
+    div#title{
+      display: none;
+    }
+}
