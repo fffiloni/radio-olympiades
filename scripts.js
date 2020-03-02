@@ -1,3 +1,5 @@
+let listeners = 14;
+
 function randombg(){
   var random= Math.floor(Math.random() * 29) + 0;
   var bigSize = ["url('https://images.unsplash.com/photo-1579285116824-28d564f1f051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3667&q=80')",
@@ -138,3 +140,9 @@ setInterval(buttonClickGET, 100*60*10);
    }
 load_tracklist()
    setInterval(load_tracklist, 60000);
+
+
+function count_listeners(){
+  
+}
+    
