@@ -103,6 +103,12 @@ div#box-2{
   right: 30px;
 }
 
+iframe#twitter-widget-0 {
+    position: fixed!important;
+    top: 23px;
+    right: 174px;
+}
+
 .socials a {
   font-size: 30px;
   text-decoration: none;
@@ -153,12 +159,14 @@ div#box-2{
   display:none;
 }
 #one:checked ~ .panels #one-panel,
+#twobis:checked ~ .panels #twobis-panel,
 #two:checked ~ .panels #two-panel,
 #three:checked ~ .panels #three-panel,
 #four:checked ~ .panels #four-panel{
   display:block
 }
 #one:checked ~ .tabs #one-tab,
+#twobis:checked ~ .tabs #twobis-tab,
 #two:checked ~ .tabs #two-tab,
 #three:checked ~ .tabs #three-tab,
 #four:checked ~ .tabs #four-tab{
@@ -199,8 +207,13 @@ div.test {
     position: relative;
 }
 
-.record, .podcasts{
+.record, .podcasts, .comments{
   margin-top: 0px !important;
+}
+
+div#disqus_thread {
+    width: 90%;
+    height: 554px;
 }
 
 
