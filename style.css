@@ -211,6 +211,12 @@ div.test {
   margin-top: 0px !important;
 }
 
+.comments {
+    margin-top: 0px !important;
+    overflow: scroll;
+    height: 564px!important;
+}
+
 div#disqus_thread {
     width: 90%;
     height: 554px;
