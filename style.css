@@ -180,6 +180,7 @@ iframe#AudioDedication {
     height: 90%;
     border-radius: 0!important;
     padding: 20px;
+  mix-blend-mode: multiply;
 }
 
 div#two-panel, div#four-panel {
@@ -209,6 +210,11 @@ div.test {
 
 .record, .podcasts, .comments{
   margin-top: 0px !important;
+}
+
+.record{
+  background-image: url('https://github.com/fffiloni/radio-olympiades/blob/master/images/bg-paroles.png?raw=true');
+  background-size: cover;
 }
 
 .comments {
