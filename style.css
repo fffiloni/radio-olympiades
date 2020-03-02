@@ -281,6 +281,12 @@ iframe#iframe-tracklist {
     height: 581px;
     margin: -8px;
     overflow: hidden;
+    mix-blend-mode: multiply;
+}
+
+#one-panel{
+  background-image: url('https://github.com/fffiloni/radio-olympiades/blob/master/images/bg-playlist.png?raw=true');
+  background-size: cover;
 }
 
 /*/* Portrait */
