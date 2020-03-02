@@ -97,7 +97,7 @@ var callBackGetSuccess = function(data) {
     } else if (data.weather[0].icon == "04d" || data.weather[0].icon == "04n"){
       element.innerHTML = "<i class=\"fas fa-cloud\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
     } else if (data.weather[0].icon == "09d"){
-      element.innerHTML = "<i class=\"fas fa-rain\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
+      element.innerHTML = "<i class=\"fas fa-cloud-showers-heavy\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
     } else if (data.weather[0].icon == "10d"){
       element.innerHTML = "<i class=\"fas fa-cloud-sun-rain\"></i> "  + " &nbsp;" + data.weather[0].description + ", " + Math.floor(data.main.temp) + "°C ";
     } else if (data.weather[0].icon == "11d" || data.weather[0].icon == "11n"){
