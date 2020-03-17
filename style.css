@@ -260,6 +260,7 @@ div#signature{
   font-size: 10px;
   font-family: monospace;
   color: grey;
+  display: none!important;
 }
 
 .fa-heart{
