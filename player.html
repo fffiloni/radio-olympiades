@@ -164,10 +164,17 @@ div#button {
  }
 
 div#time {
-    font-family: sans-serif;
-    font-size: 18px;
-  font-weight: 100;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 40px;
+font-weight: 500;
+text-transform: uppercase;
+}
+
+div#time > img {
+  margin-left: 10px;
+  mix-blend-mode: multiply;
 }
 
 div#track-time {
@@ -503,7 +510,9 @@ function giveTime(){
   let moment = new Date();
   //console.log(heure + ":" + minutes);
   let horaire = document.getElementById("time");
-  horaire.innerHTML ="Radio Olympiades • " +  affichZero(moment.getHours()) + "<span id=\"point-heure\">:</span>" + affichZero(moment.getMinutes());
+  horaire.innerHTML = affichZero(moment.getHours()) +
+  "<span id=\"point-heure\">:</span>" +
+  affichZero(moment.getMinutes()) + " • <img src=\"https://www.radioolympiades.fr/images/logo-RO-solo.jpg\" width=\"60px\">";
 }
 
 window.onload = function() {
