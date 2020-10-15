@@ -236,6 +236,62 @@ h2, h3 {
   }
 }
 
+/*Retina iPad 3 & 4 in landscape*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1300px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+/* STYLES GO HERE */
+
+div#body{
+  height: 90vh;
+}
+
+div#bonjour, div#main{
+  width: 800px;
+}
+
+div#main{
+  margin-bottom: 70px;
+}
+
+div#visual-container{
+  width: width: 794px;
+  margin: 16px auto;
+}
+
+}
+
+
+@media only screen
+and (min-width : 1300px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+  body{
+    /* display: flex; */
+  }
+
+  #body{
+    height: 100vh;
+    flex: 2;
+  }
+
+  #main{
+    margin-bottom: 200px;
+  }
+
+
+  #last-tracks{
+
+    flex:1;
+  }
+
+  #last-tracks > div {
+    width: 90%;
+  }
+
+}
 
   
 </style>
