@@ -1,3 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Player Radio Olympiades</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.1/axios.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.iife.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+  
+  body{
+  margin: 0 auto;
+}
+
+#body{
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div#bonjour {
+    width: 600px;
+    font-family: sans-serif;
+    margin: 50px auto 0;
+    font-size: 15px;
+    /* border-bottom: 1px solid; */
+    /* display: inline-block; */
+}
+
+h1 {
+    display: inline-block;
+    border-bottom: 4px solid;
+    padding-bottom: 10px;
+    /* margin: 0; */
+}
+
+#main{
+  
+  width: 600px;
+  margin: 112px;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#section-1{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#section-2{
+  width: 100%;
+}
+
+#section-3{
+  width: 100%;
+  margin: 30px 0;
+}
+
+#visual-container{
+  width: 594px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  /* height: 500px; */
+  overflow: hidden;
+  margin: 4px auto;
+}
+
+#duration{
+  background: black;
+  height: 4px;
+  margin-top: 4px;
+  width: 100%;  
+}
+
+#playhead{
+  background: red;
+  height: 4px;
+  width: 1px;
+}
+
+#cover-container{
+  flex: 1;
+}
+
+#cover-img{
+  width: 100%;
+}
+
+#track-details{
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  flex: 4;
+  margin: 24px 0;
+  text-align: left;
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 120px;
+}
+
+div#title {
+   font-size: 70px;
+   margin-right: 10px;
+}
+
+div#artist {
+  font-size: 20px;
+    margin-top: 12px;
+    margin-left: 6px;
+}
+
+div#player-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#button-container {  
+  align-items: center;
+  display: flex;  
+  justify-content: flex-start;
+  width: auto; 
+  z-index: 1;
+} 
+
+div#button {
+  align-items: center;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  font-size: 80px;
+  justify-content: center; 
+  
+ }
+
+.pause {
+  background-position: 0 -100%;
+ }
+
+.hide { 
+  display: none;
+ }
+
+.hide-change {
+  display: none;
+}
+
+.remove {
+  left: -999em;
+  position: absolute;  
+ }
+
+div#time {
+    font-family: sans-serif;
+    font-size: 18px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+div#track-time {
+    font-family: sans-serif;
+    font-size: 40px;
+    display: none;
+}
+
+#last-tracks{
+  width: 100vw;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 80px 0;
+  background: cornflowerblue;
+}
+
+#last-tracks > div {
+    font-family: sans-serif;
+    width: 600px;
+  border-bottom: 4px solid;
+  padding: 10px;
+}
+
+h2, h3 {
+  margin: 0;
+}
+
+.reduce{
+  font-size: 46px!important;
+}
+
+/* ANIMATIONS */
+
+.artist-in {
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-name: opacityIn;
+  margin: 0;
+  
+}
+
+.title-in {
+  animation-duration: 3s;
+  animation-name: opacityIn;
+  margin: 0;
+}
+
+@keyframes opacityIn {
+  from {
+    opacity: 0;  
+  }
+
+  to {
+   opacity:100;
+   
+  }
+}
+
+@keyframes canvasRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+  
+</style>
+</head>
+<body>
 <div id="body">
   <div id="bonjour">
     <h1>Bonjour la Dalle !</h1>
@@ -54,3 +297,205 @@
 <div id="last-tracks">
   
 </div>
+
+<script type="text/javascript">
+let stream = 'https://api.radioking.io/widget/radio/radio-olympiades/track/current';
+let playhead = document.getElementById("playhead");
+let timeline = document.getElementById("duration");
+let song =  document.getElementById("title");
+let artist = document.getElementById("artist");
+let cover = document.getElementById("cover-container");
+let timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
+
+let time = new Date();
+let track_start = null;
+let track_end = null;
+let track_duration = null;
+let track_duration_div = document.getElementById("track-duration");
+let time_elapsed_div = document.getElementById("time-elapsed");
+let next_track = null;
+let playHeadPosition = null;
+let timeElapsed = null;
+let retard = 10000;
+let percentWidth = 0;
+let intervalCheck;
+let track_title = "";
+let track_artist = "";
+let track_cover = null;
+
+let last_tracks = [];
+
+playhead.style.width = 40 + "px";
+
+function nowPlaying(){
+    
+   axios.get(stream).then(function(response){
+     
+     track_start = response.data.started_at;
+     track_end = response.data.end_at;
+     next_track = response.data.next_track;
+     track_cover = response.data.cover;
+     track_duration = Date.parse(track_end) - Date.parse(track_start);
+     track_duration_sec = track_duration / 1000;
+  
+     
+     if(track_duration_sec > 60 ){
+       
+       track_title = response.data.title;
+       track_artist = response.data.artist;
+       song.innerHTML = track_title;
+       if(track_title.length > 40){
+         song.classList.add('reduce');
+       } else {
+         song.classList.remove('reduce');
+       }
+       artist.innerHTML = track_artist;
+       cover.innerHTML = "<img id=\"cover-img\" src=\"" + track_cover + "\">";
+       document.title = track_title + " • " + track_artist + " | Radio Olympiades "; 
+       intervalCheck = setInterval(movePlayHead, 20);
+       console.log(response.data);
+       } else {
+         //console.log("JINGLE RADIO")
+         nowPlaying();
+     };
+    
+   });
+};
+
+function getLastTracks(){
+  document.getElementById("last-tracks").innerHTML = "";
+  if(last_tracks.length != 0){
+    if(last_tracks.length == 7){
+      last_tracks.splice(0, 1);
+    }
+    last_tracks.forEach(function(track, index){
+      let TR = document.createElement("div");
+      document.getElementById("last-tracks").appendChild(TR);
+      TR.innerHTML = "<h2>" + track.title + "</h2><h3>" + track.artiste + "</h3>";
+    });
+  } 
+}
+
+function movePlayHead(){
+  playHeadPosition = Date.now();
+ 
+  timeElapsed = playHeadPosition - (Date.parse(track_start) + retard);
+  timeRemain = Date.parse(track_end) - playHeadPosition;
+  
+  let playWidth = (timelineWidth * (timeElapsed / track_duration));
+  let playPercent = (100 * (timeElapsed / track_duration));
+  
+  if (playPercent >= 100){
+    let keepTracks = {
+      title: track_title,
+      artiste: track_artist
+    }
+    
+    last_tracks.push(keepTracks);
+    console.log(last_tracks);
+    
+    clearInterval(intervalCheck);
+    getLastTracks();
+    playWidth = 0;
+    setTimeout(nowPlaying, 50);
+  }
+  
+  playhead.style.width = playWidth + "px";
+};
+
+nowPlaying();
+
+
+function visual(){
+  let wave = new Wave();
+ 
+      navigator.mediaDevices.getUserMedia({
+            audio: true
+         })
+         .then(function (stream) {
+            wave.fromElement("player","canvas", {
+               stroke: 2,
+               type: "bars",
+               colors: ["black"]
+            });
+         })
+         .catch(function (err) {
+            console.log(err.message)
+         });
+}
+
+visual();
+
+
+
+function affichZero(nombre) {
+// cette fonction prend en paramètre un nombre
+// si ce nombre est inférieur à 10, on affiche 0 + ce nombre
+// Ex: il est 07h00
+return nombre < 10 ? '0' + nombre : nombre;
+}
+
+function giveTime(){
+  let moment = new Date();
+  //console.log(heure + ":" + minutes);
+  let horaire = document.getElementById("time");
+  horaire.innerHTML ="Radio Olympiades • " +  affichZero(moment.getHours()) + "<span id=\"point-heure\">:</span>" + affichZero(moment.getMinutes());
+}
+
+window.onload = function() {
+  let giveMeTime = setInterval(giveTime, 1000);
+}
+
+
+
+
+// Fonction pour les controles du player //
+
+( function( d ) {
+  'use strict';
+
+   var test = true,
+       statusPlay = d.querySelector('#play-button'),
+       statusPause = d.querySelector('#pause-button'),
+       but = d.querySelector( '#button' ),
+       aud = d.querySelector( '#player' );
+       aud.classList.add( 'remove' );
+       d.querySelector( '#button-container' ).classList.remove( 'hide' );
+
+   but.addEventListener('click',
+      function() {
+         if ( test === true ) {
+              but.classList.add( 'pause' );
+           but.classList.remove( 'play' );
+           statusPlay.classList.add('hide');
+           statusPause.classList.remove('hide');
+              test = false;
+              aud.load();
+              aud.play();
+         }
+         else {
+              changeBTNS();
+              aud.pause();
+              aud.load();
+              
+         }
+      }, false );
+
+   aud.addEventListener( 'ended',
+      function() {
+         changeBTNS();
+         aud.load();
+       }, false );
+
+   function changeBTNS() {
+      but.classList.remove( 'pause' );
+      but.classList.add( 'play' );
+      statusPlay.classList.remove('hide');
+      statusPause.classList.add('hide');
+      test = true;
+    }
+ }( document ));
+</script>
+  
+  </body>
+</html>
