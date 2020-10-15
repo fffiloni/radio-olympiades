@@ -344,7 +344,7 @@ function nowPlaying(){
        track_title = response.data.title;
        track_artist = response.data.artist;
        song.innerHTML = track_title;
-       if(track_title.length > 40){
+       if(track_title.length > 30){
          song.classList.add('reduce');
        } else {
          song.classList.remove('reduce');
