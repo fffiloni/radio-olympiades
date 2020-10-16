@@ -479,21 +479,15 @@ nowPlaying();
 
 
 function visual(){
-  let wave = new Wave();
+  
  
-      navigator.mediaDevices.getUserMedia({
-            audio: true
-         })
-         .then(function (stream) {
-            wave.fromElement("player","canvas", {
-               stroke: 2,
-               type: "bars",
-               colors: ["black"]
-            });
-         })
-         .catch(function (err) {
-            console.log(err.message)
-         });
+ let wave = new Wave();
+
+  wave.fromElement("player","canvas", {
+     stroke: 2,
+     type: "bars",
+     colors: ["black"]
+  });
 }
 
 visual();
