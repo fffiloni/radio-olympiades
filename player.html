@@ -400,38 +400,57 @@ let last_tracks = [];
 playhead.style.width = 40 + "px";
 
 function nowPlaying(){
-    
-   axios.get(stream).then(function(response){
-     
+
+   axios.get(stream + '?nocache=' + new Date().getTime()).then(function(response){
+
      track_start = response.data.started_at;
      track_end = response.data.end_at;
      next_track = response.data.next_track;
      track_cover = response.data.cover;
      track_duration = Date.parse(track_end) - Date.parse(track_start);
      track_duration_sec = track_duration / 1000;
-  
-     
-     if(track_duration_sec > 60 ){
-       
+     is_live = response.data.is_live;
+
+     if(is_live == false){
+       if(track_duration_sec > 60 ){
+
+         track_title = response.data.title;
+         track_artist = response.data.artist;
+         song.innerHTML = track_title;
+         if(track_title.length > 30){
+           song.classList.add('reduce');
+         } else {
+           song.classList.remove('reduce');
+         }
+         artist.innerHTML = track_artist;
+         cover.innerHTML = "<img id=\"cover-img\" src=\"" +
+         track_cover + "\">";
+         document.title = track_title + " • " + track_artist +
+         " | Radio Olympiades ";
+         intervalCheck = setInterval(movePlayHead, 20);
+         console.log(response.data);
+         } else {
+           //console.log("JINGLE RADIO")
+           nowPlaying();
+       };
+     } else {
        track_title = response.data.title;
        track_artist = response.data.artist;
        song.innerHTML = track_title;
-       if(track_title.length > 30){
-         song.classList.add('reduce');
-       } else {
-         song.classList.remove('reduce');
-       }
        artist.innerHTML = track_artist;
-       cover.innerHTML = "<img id=\"cover-img\" src=\"" + track_cover + "\">";
-       document.title = track_title + " • " + track_artist + " | Radio Olympiades "; 
-       intervalCheck = setInterval(movePlayHead, 20);
-       console.log(response.data);
-       } else {
-         //console.log("JINGLE RADIO")
-         nowPlaying();
-     };
-    
-   });
+       cover.innerHTML = "<img id=\"cover-img\" src=\"" +
+       track_cover + "\">";
+       document.title = track_title + " • " + track_artist +
+       " | Radio Olympiades ";
+       clearInterval(intervalCheck);
+       setTimeout(nowPlaying, (5*60000));
+     }
+
+
+
+   }).catch(error => {
+              console.log(error);
+          });
 };
 
 function getLastTracks(){
