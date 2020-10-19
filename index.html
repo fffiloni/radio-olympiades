@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Player Radio Olympiades</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/mq.css">
+    <!-- <link rel="stylesheet" href="css-propre/master-mq.css"> -->
+    <script type="text/javascript" src="scripts/wave.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <div id="main-content">
+
+      <div class="section fullscreen">
+
+        <div class="left">
+          
+          <div class="left-section">
+            <div id="bonjour">
+              <h1>Bonjour la Dalle !</h1>
+            </div>
+            <div id="cover-device"></div>
+          </div>
+
+          <div id="main-player" class="left-section">
+            <div id="track-info">
+              <div id="title-box"></div>
+              <div id="artist-box"></div>
+            </div>
+            <div id="visual-container">
+              <div id="visualizer">
+                <canvas id="canvas" height="60"></canvas>
+              </div>
+            </div>
+            
+            <div id="timeline">
+              <div id="duration">
+                <div id="playhead"></div>
+              </div>
+            </div>
+            <div id="player-controls">
+              <div id="button-container" class="">
+                <div id="button" class="">
+                  <i id="play-button" class="fas fa-play-circle"></i>
+                  <i id="pause-button" class="hide fas fa-pause-circle"></i>
+                </div>
+              </div>
+              <div id="time"></div>
+            </div>
+
+            <!-- Lecteur audio caché -->
+            <audio id="player" controls="" class="remove" crossorigin playsinline="">
+              <source src="https://www.radioking.com/play/radio-olympiades" type="audio/mpeg">
+            </audio>
+          </div>
+        
+        </div>
+
+        <div class="right">
+          <div id="cover-box">
+          </div>
+        </div>
+
+      </div>
+      <div class="section">
+        <div class="left">
+          <div class="left-section">
+            <div id="last-tracks"></div>
+          </div>
+        </div>
+        <div class="right"></div>
+      </div>
+
+    </div>
+    <script type="text/javascript" src="master.js"></script>
+  </body>
+</html>
