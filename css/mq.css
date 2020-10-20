@@ -109,6 +109,9 @@
     #cover-device{
       display: block;
   }
+  div#title-box {
+    font-size: 5em;
+  }
 }
 
 /* Landscape */
@@ -119,6 +122,9 @@
   and (orientation: landscape) { 
     #cover-device{
       display: none;
+  }
+  div#title-box {
+    font-size: 4em;
   }
 }
 
@@ -145,6 +151,9 @@
     #cover-device{
       display: block;
   }
+  div#title-box {
+    font-size: 4em;
+  }
 }
 
 /* Landscape */
@@ -155,6 +164,9 @@
   and (orientation: landscape) { 
     #cover-device{
       display: none;
+  }
+  div#title-box {
+    font-size: 5em;
   }
 }
 
@@ -178,6 +190,9 @@
   and (orientation: portrait) { 
     #cover-device{
       display: block;
+  }
+  div#title-box {
+    font-size: 5em;
   }
 }
 
