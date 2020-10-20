@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="css/master.css">
     <link rel="stylesheet" href="css/mq.css">
+    <link rel="stylesheet" href="css/odometer.css">
     <!-- <link rel="stylesheet" href="css-propre/master-mq.css"> -->
     <script type="text/javascript" src="scripts/wave.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -52,7 +53,9 @@
                   <i id="pause-button" class="hide fas fa-pause-circle"></i>
                 </div>
               </div>
-              <div id="time"></div>
+              <div id="time">
+                <span id="time-hours" class="odometer"></span> : <span id="time-minutes" class="odometer"></span>
+              </div>
             </div>
 
             <!-- Lecteur audio caché -->
@@ -70,7 +73,7 @@
 
       </div>
       <div class="section">
-        <div class="left">
+        <div class="left dark">
           <div class="left-section">
             <div id="last-tracks"></div>
           </div>
@@ -80,5 +83,6 @@
 
     </div>
     <script type="text/javascript" src="scripts/master.js"></script>
+    <script type="text/javascript" src="scripts/odometer.js"></script>
   </body>
 </html>
