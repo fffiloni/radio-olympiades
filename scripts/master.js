@@ -179,10 +179,10 @@ function affichZero(nombre) {
 function giveTime(){
     let moment = new Date();
     //console.log(heure + ":" + minutes);
-    let horaire = document.getElementById("time");
-    horaire.innerHTML = affichZero(moment.getHours()) +
-    "<span id=\"point-heure\">:</span>" +
-    affichZero(moment.getMinutes());
+    let heure = document.getElementById("time-hours");
+    let minutes = document.getElementById("time-minutes");
+    heure.innerHTML = affichZero(moment.getHours());
+    minutes.innerHTML = affichZero(moment.getMinutes());
     
     let time = moment.getHours();
     let welcome = document.getElementById("bonjour-h1");
