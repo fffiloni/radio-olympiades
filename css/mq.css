@@ -74,6 +74,12 @@
       display: block;
       text-align: center;
   }
+  div#track-info{
+    text-align: center;
+  }
+  div#title-box {
+    font-size: 4em;
+  }
 }
 
 /* Landscape */
@@ -111,8 +117,11 @@
       display: block;
       text-align: center;
   }
+  div#track-info{
+    text-align: center;
+  }
   div#title-box {
-    font-size: 5em;
+    font-size: 4em;
   }
 }
 
@@ -154,6 +163,9 @@
       display: block;
       text-align: center;
   }
+  div#track-info{
+    text-align: center;
+  }
   div#title-box {
     font-size: 4em;
   }
@@ -194,6 +206,9 @@
     #cover-device{
       display: block;
       text-align: center;
+  }
+  div#track-info{
+    text-align: center;
   }
   div#title-box {
     font-size: 5em;
