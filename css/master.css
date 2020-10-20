@@ -33,6 +33,12 @@ h3{
     align-items: center;
 }
 
+.left.dark {
+    background: #1a1a1a;
+    color: #ffcb6a;
+    padding-top: 80px;
+}
+
 .right{
     width:100vh;
 }
