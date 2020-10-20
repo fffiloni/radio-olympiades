@@ -182,16 +182,16 @@ function giveTime(){
     let horaire = document.getElementById("time");
     horaire.innerHTML = affichZero(moment.getHours()) +
     "<span id=\"point-heure\">:</span>" +
-    affichZero(moment.getMinutes()) + " • <img src=\"images/logo-RO-solo.jpg\" width=\"60px\">";
+    affichZero(moment.getMinutes());
     
     let time = moment.getHours();
-    let welcome = document.getElementById("bonjour");
+    let welcome = document.getElementById("bonjour-h1");
     if(time >= 0 && time < 7){
-        welcome.innerHTML = "<h1>La Dalle La Nuit</h1>";
+        welcome.innerHTML = "<span class=\"h-space\"></span>La Dalle La Nuit";
     } else if (time >= 7 && time < 18){
-        welcome.innerHTML = "<h1>Bonjour la Dalle !</h1>";
+        welcome.innerHTML = "<span class=\"h-space\"></span>Bonjour la Dalle !";
     } else {
-        welcome.innerHTML = "<h1>Bonsoir la Dalle !</h1>";
+        welcome.innerHTML = "<span class=\"h-space\"></span>Bonsoir la Dalle !";
     }
 
 }
