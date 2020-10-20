@@ -86,7 +86,7 @@ function dispatchInfos(json){
                 cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
             } else {
                 cover_box.style = "background-image: url(\'https://images.unsplash.com/photo-1579285116824-28d564f1f051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80\');background-size:cover;background-position: center;";
-                cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" width=\"300px\">";
+                cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:300px!important;mix-blend-mode: multiply;filter:invert;\">";
             }
 
             // browser window title
@@ -174,6 +174,7 @@ function affichZero(nombre) {
     // si ce nombre est inférieur à 10, on affiche 0 + ce nombre
     // Ex: il est 07h00
     return nombre < 10 ? '0' + nombre : nombre;
+    
 }
     
 function giveTime(){
@@ -181,8 +182,9 @@ function giveTime(){
     //console.log(heure + ":" + minutes);
     let heure = document.getElementById("time-hours");
     let minutes = document.getElementById("time-minutes");
-    heure.innerHTML = affichZero(moment.getHours());
-    minutes.innerHTML = affichZero(moment.getMinutes());
+    // let test = 9;
+    heure.innerHTML = moment.getHours();
+    minutes.innerHTML = moment.getMinutes();
     
     let time = moment.getHours();
     let welcome = document.getElementById("bonjour-h1");
