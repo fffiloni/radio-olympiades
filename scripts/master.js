@@ -140,7 +140,7 @@ function movePlayHead(){
 function getLastTracks(){
     document.getElementById("last-tracks").innerHTML = "";
     if(last_tracks.length != 0){
-        if(last_tracks.length == 11){
+        if(last_tracks.length == 4){
         last_tracks.splice(0, 1);
         }
         last_tracks.forEach(function(track, index){
