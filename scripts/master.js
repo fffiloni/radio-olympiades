@@ -71,7 +71,7 @@ function dispatchInfos(json){
             // song title
             title_box.innerHTML = track_title;
 
-            if(track_title.length >= 30){
+            if(track_title.length >= 20){
                 title_box.classList.add('reduce-font-size');
             } else {
                 title_box.classList.remove('reduce-font-size');
