@@ -71,7 +71,7 @@ function dispatchInfos(json){
             // song title
             title_box.innerHTML = track_title;
 
-            if(track_title.length >= 20){
+            if(track_title.length >= 30){
                 title_box.classList.add('reduce-font-size');
             } else {
                 title_box.classList.remove('reduce-font-size');
@@ -100,10 +100,39 @@ function dispatchInfos(json){
             nowPlaying();
         }
 
-    } else {
+    } else if (radio_is_live === true){
         // Radio is streaming live from studio
         // Stop rendering playhead moves
-        clearInterval(intervalCheck);
+        clearInterval(updateTimeline);
+        track_title = json.title;
+        track_artist = json.artist;
+        // song title
+        title_box.innerHTML = track_title;
+
+        if(track_title.length >= 30){
+            title_box.classList.add('reduce-font-size');
+        } else {
+            title_box.classList.remove('reduce-font-size');
+        }
+
+        if(track_title.length >= 30){
+            title_box.classList.add('reduce-font-size');
+        } else {
+            title_box.classList.remove('reduce-font-size');
+        }
+
+        // artist name
+        if(track_artist){
+            artist_box.innerHTML = track_artist;
+        }
+        
+        track_cover = json.cover;
+
+        
+            cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
+            cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:400px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
+        
+
         // Check if Radio is still streaming live every minutes
         liveCheck = setInterval(nowPlaying, 60000);
     }
