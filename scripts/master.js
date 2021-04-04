@@ -136,7 +136,7 @@ function dispatchInfos(json){
             cover_box_device.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"text-align:center;height:230px!important;width:400px!important;mix-blend-mode: screen;filter:invert(1);\">";
             
         // Check if Radio is still streaming live every minutes
-        liveCheck = setInterval(nowPlaying, 60000);
+        liveCheck = setInterval(nowPlaying, 60000*5);
     }
 }
 
