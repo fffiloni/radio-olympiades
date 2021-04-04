@@ -233,7 +233,7 @@ div#last-tracks {
   }
 
   #cover-device{
-      display: none;
+      display: none!important;
   }
 
   img#cover-device-img {
