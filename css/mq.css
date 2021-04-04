@@ -71,7 +71,7 @@
   and (orientation: portrait) {
 
     #cover-device{
-      display: block;
+      display: block!important;
       text-align: center;
   }
   div#track-info{
@@ -114,7 +114,7 @@
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) { 
     #cover-device{
-      display: block;
+      display: block!important;
       text-align: center;
   }
   div#track-info{
@@ -132,7 +132,7 @@
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) { 
     #cover-device{
-      display: none;
+      display: none!important;
   }
   div#title-box {
     font-size: 4em;
@@ -160,7 +160,7 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
     #cover-device{
-      display: block;
+      display: block!important;
       text-align: center;
   }
   div#track-info{
@@ -178,7 +178,7 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: landscape) { 
     #cover-device{
-      display: none;
+      display: none!important;
   }
   div#title-box {
     font-size: 5em;
@@ -204,7 +204,7 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
     #cover-device{
-      display: block;
+      display: block!important;
       text-align: center;
   }
   div#track-info{
@@ -222,6 +222,6 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: landscape) { 
     #cover-device{
-      display: none;
+      display: none!important;
   }
 }
