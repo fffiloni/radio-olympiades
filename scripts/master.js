@@ -30,6 +30,7 @@ let userInteract = false;
 // setInterval variables
 let updateTimeline;
 let liveCheck;
+let priseLive;
 let multicolor;
 
 // Last tracks
@@ -43,6 +44,14 @@ function nowPlaying(){
 }
 
 nowPlaying();
+
+function checkPrise(){
+    if(radio_is_live === true){
+        clearInterval(priseLive);
+    } else {
+        //do nothing
+    }
+}
 
 function dispatchInfos(json){
     console.log(json);
@@ -67,7 +76,7 @@ function dispatchInfos(json){
         console.log("is not live");
         // Radio is streaming from library
         clearTimeout(liveCheck); 
-        liveCheck = setInterval(nowPlaying, 5000);
+        priseLive = setInterval(checkPrise, 5000);
         clearInterval(updateTimeline);
 
         if(track_duration_sec > 60){
@@ -113,7 +122,7 @@ function dispatchInfos(json){
 
     } else if (radio_is_live === true){
         // Radio is streaming live from studio
-        clearInterval(liveCheck); 
+        clearInterval(priseLive); 
         clearInterval(multicolor); 
         clearInterval(updateTimeline);
         // Stop rendering playhead moves
