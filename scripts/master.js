@@ -30,6 +30,7 @@ let userInteract = false;
 // setInterval variables
 let updateTimeline;
 let liveCheck;
+let multicolor;
 
 // Last tracks
 const last_tracks = [];
@@ -46,6 +47,8 @@ nowPlaying();
 function dispatchInfos(json){
     console.log(json);
 
+    
+
     radio_is_live = json.is_live;
     default_cover = json.default_cover;
 
@@ -61,16 +64,19 @@ function dispatchInfos(json){
     let track_duration_sec = track_duration / 1000;
 
     if(radio_is_live === false){
+        console.log("is not live");
         // Radio is streaming from library
-        clearInterval(liveCheck);  
+        clearTimeout(liveCheck); 
+        liveCheck = setInterval(nowPlaying, 5000);
+        clearInterval(updateTimeline);
 
         if(track_duration_sec > 60){
             // Radio is streaming a song
             // We update information on DOM
+            console.log("is a song");
             
             // change playhead color
-            let randomColor = Math.floor(Math.random()*16777215).toString(16);
-            playhead.style = "background:#" + randomColor + "!important;";
+            colorizeTimeline();
 
             // song title
             title_box.innerHTML = track_title;
@@ -101,17 +107,20 @@ function dispatchInfos(json){
         } else {
             // Radio is streaming a jingle
             // We check the stream until it return a song
+            console.log("on jingle");
             nowPlaying();
         }
 
     } else if (radio_is_live === true){
         // Radio is streaming live from studio
-        // Stop rendering playhead moves
+        clearInterval(liveCheck); 
+        clearInterval(multicolor); 
         clearInterval(updateTimeline);
+        // Stop rendering playhead moves
         
+        console.log("Radio is en DIRECT");
         // change playhead color
-        let randomColor = Math.floor(Math.random()*16777215).toString(16);
-            playhead.style = "background:#" + randomColor + "!important;width:100%!important";
+        colorizeTimeline();
 
         // song title
         title_box.innerHTML = track_title;
@@ -143,8 +152,15 @@ function dispatchInfos(json){
             cover_box_device.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"text-align:center;height:230px!important;width:400px!important;mix-blend-mode: screen;filter:invert(1);\">";
             
         // Check if Radio is still streaming live every minutes
-        liveCheck = setInterval(nowPlaying, 60000 * 5);
+        console.log("setTimeout liveCheck");
+        liveCheck = setTimeout(nowPlaying, 60000 * 2);
+        multicolor = setInterval(colorizeTimeline, 1000);
     }
+}
+
+function colorizeTimeline(){
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    playhead.style = "background:#" + randomColor + "!important;width:100%!important";
 }
 
 function movePlayHead(){
@@ -226,16 +242,23 @@ function giveTime(){
     heure.innerHTML = moment.getHours();
     minutes.innerHTML = moment.getMinutes();
     
-    
-    let time = moment.getHours();
     let welcome = document.getElementById("bonjour-h1");
-    if(time >= 0 && time < 7){
-        welcome.innerHTML = "<span class=\"h-space\"></span>La Dalle La Nuit";
-    } else if (time >= 7 && time < 18){
-        welcome.innerHTML = "<span class=\"h-space\"></span>Bonjour la Dalle !";
+
+    if(radio_is_live === true){
+        welcome.innerHTML = "<span class=\"h-space\"></span>• live •";
     } else {
-        welcome.innerHTML = "<span class=\"h-space\"></span>Bonsoir la Dalle !";
+        // let time = moment.getHours();
+        
+        // if(time >= 0 && time < 7){
+        //     welcome.innerHTML = "<span class=\"h-space\"></span>La Dalle La Nuit";
+        // } else if (time >= 7 && time < 18){
+        //     welcome.innerHTML = "<span class=\"h-space\"></span>Bonjour la Dalle !";
+        // } else {
+        //     welcome.innerHTML = "<span class=\"h-space\"></span>Bonsoir la Dalle !";
+        // }
     }
+    
+    
 
 }
 
