@@ -42,21 +42,40 @@ function nowPlaying(){
     .then(json => dispatchInfos(json))
     .catch(err => console.log(err)) 
 }
-
+colorizeTimeline();
 nowPlaying();
 
-function checkPrise(){
-    if(radio_is_live === true){
-        clearInterval(priseLive);
+function watchStream(){
+    fetch(stream)
+    .then(response => response.json())
+    .then(json => streamState(json.is_live))
+    .catch(err => console.log(err)) 
+}
+
+function streamState(state){
+    if (state !== radio_is_live){
+        if(state === true){
+            console.log("Prise de Direct detectée");
+        } else {
+            console.log("Direct coupé");
+        }
+        nowPlaying();
     } else {
-        //do nothing
+        clearTimeout(liveCheck); 
+        liveCheck = setTimeout(watchStream, 10000);
     }
+}
+
+function checkRaccrochage(){
+    nowPlaying();
+}
+
+function checkPrise(){
+    nowPlaying();
 }
 
 function dispatchInfos(json){
     console.log(json);
-
-    
 
     radio_is_live = json.is_live;
     default_cover = json.default_cover;
@@ -77,7 +96,7 @@ function dispatchInfos(json){
         // Radio is streaming from library
         clearInterval(multicolor);
         clearTimeout(liveCheck); 
-        priseLive = setInterval(checkPrise, 5000);
+        liveCheck = setTimeout(watchStream, 10000);
         clearInterval(updateTimeline);
 
         if(track_duration_sec > 60){
@@ -85,8 +104,7 @@ function dispatchInfos(json){
             // We update information on DOM
             console.log("is a song");
             
-            // change playhead color
-            colorizeTimeline();
+            
 
             // song title
             title_box.innerHTML = track_title;
@@ -102,6 +120,7 @@ function dispatchInfos(json){
 
             // song cover
             if(default_cover === false){
+                cover_box_device.style = "background-image: none!important;";
                 cover_box.innerHTML = "<img id=\"big-cover-img\" src=\"" + track_cover + "\">";
                 cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
             } else {
@@ -118,6 +137,7 @@ function dispatchInfos(json){
             // Radio is streaming a jingle
             // We check the stream until it return a song
             console.log("on jingle");
+            clearTimeout(liveCheck);
             nowPlaying();
         }
 
@@ -153,8 +173,6 @@ function dispatchInfos(json){
         }
         
         
-
-        
             cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
             cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
             
@@ -163,7 +181,7 @@ function dispatchInfos(json){
             
         // Check if Radio is still streaming live every minutes
         console.log("setTimeout liveCheck");
-        liveCheck = setTimeout(nowPlaying, 60000 / 2);
+        liveCheck = setTimeout(watchStream, 10000);
         multicolor = setInterval(colorizeTimeline, 1000);
     }
 }
@@ -195,7 +213,8 @@ function movePlayHead(){
         last_tracks.push(keepTracks);
         getLastTracks();
         playWidth = 0;
-        
+        // change playhead color
+        setTimeout(colorizeTimeline, 50);
         setTimeout(nowPlaying, 50);
     }
 
@@ -257,6 +276,7 @@ function giveTime(){
     if(radio_is_live === true){
         welcome.innerHTML = "<span class=\"h-space\"></span>• live •";
     } else {
+        welcome.innerHTML = "<span class=\"h-space\"></span>";
         // let time = moment.getHours();
         
         // if(time >= 0 && time < 7){
