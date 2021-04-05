@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+
+    <meta charset="utf-8">
+    <title>TIMECODE Radio Olympiades</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="css/odometer.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24em;
+            font-family: sans-serif;
+            font-weight: 900;
+            background: black;
+            color: white;
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="time">
+        <span id="time-hours" class=""></span>:<span id="time-minutes" class=""></span>:<span id="time-seconds" class=""></span>
+    </div>
+
+
+    <script type="text/javascript">
+
+    function affichZero(nombre) {
+    // cette fonction prend en paramètre un nombre
+    // si ce nombre est inférieur à 10, on affiche 0 + ce nombre
+    // Ex: il est 07h00
+    return nombre < 10 ? '0' + nombre : nombre;
+    
+}
+        function giveTime(){
+    let moment = new Date();
+    //console.log(heure + ":" + minutes);
+    let heure = document.getElementById("time-hours");
+    let minutes = document.getElementById("time-minutes");
+    let secondes = document.getElementById("time-seconds");
+    
+    // let test = 9;
+    heure.innerHTML = affichZero(moment.getHours());
+    minutes.innerHTML = affichZero(moment.getMinutes());
+    secondes.innerHTML = affichZero(moment.getSeconds());
+    
+
+}
+window.onload = function() {
+    let giveMeTime = setInterval(giveTime, 1000);   
+}
+    
+    </script>
+    <script type="text/javascript" src="scripts/odometer.js"></script>
+  </body>
+</html>
+
