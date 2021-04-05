@@ -46,8 +46,6 @@ nowPlaying();
 function dispatchInfos(json){
     console.log(json);
 
-     
-
     radio_is_live = json.is_live;
     default_cover = json.default_cover;
 
@@ -112,6 +110,7 @@ function dispatchInfos(json){
         clearInterval(updateTimeline);
         
         // change playhead color
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
             playhead.style = "background:#" + randomColor + "!important;width:100%!important";
 
         // song title
@@ -222,9 +221,11 @@ function giveTime(){
     //console.log(heure + ":" + minutes);
     let heure = document.getElementById("time-hours");
     let minutes = document.getElementById("time-minutes");
+    
     // let test = 9;
     heure.innerHTML = moment.getHours();
     minutes.innerHTML = moment.getMinutes();
+    
     
     let time = moment.getHours();
     let welcome = document.getElementById("bonjour-h1");
