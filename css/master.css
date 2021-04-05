@@ -67,7 +67,12 @@ h3{
 #bonjour > h1{
     font-family: sans-serif;
     padding: 10px 0;
-    display: none;
+    /* display: none; */
+    text-align: right;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #d00000;
 }
 
 #bonjour > img {
@@ -93,7 +98,7 @@ h3{
 }
 
 #playhead{
-    background: red;
+    /* background: red; */
     height:4px;
     /* border-radius: 10px; */
 }
@@ -178,7 +183,7 @@ div#player-controls {
 
   div#track-info {
     margin-bottom: 40px;
-      text-align: center;
+    text-align: center;
 }
 
   div#title-box {
