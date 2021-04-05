@@ -75,6 +75,7 @@ function dispatchInfos(json){
     if(radio_is_live === false){
         console.log("is not live");
         // Radio is streaming from library
+        clearInterval(multicolor);
         clearTimeout(liveCheck); 
         priseLive = setInterval(checkPrise, 5000);
         clearInterval(updateTimeline);
@@ -162,7 +163,7 @@ function dispatchInfos(json){
             
         // Check if Radio is still streaming live every minutes
         console.log("setTimeout liveCheck");
-        liveCheck = setTimeout(nowPlaying, 60000 * 2);
+        liveCheck = setTimeout(nowPlaying, 60000 / 2);
         multicolor = setInterval(colorizeTimeline, 1000);
     }
 }
