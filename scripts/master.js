@@ -66,14 +66,6 @@ function streamState(state){
     }
 }
 
-function checkRaccrochage(){
-    nowPlaying();
-}
-
-function checkPrise(){
-    nowPlaying();
-}
-
 function dispatchInfos(json){
     console.log(json);
 
@@ -149,9 +141,7 @@ function dispatchInfos(json){
         // Stop rendering playhead moves
         
         console.log("Radio is en DIRECT");
-        // change playhead color
-        colorizeTimeline();
-
+        
         // song title
         title_box.innerHTML = track_title;
 
