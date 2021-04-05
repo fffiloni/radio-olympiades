@@ -86,7 +86,7 @@ function dispatchInfos(json){
                 cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
             } else {
                 cover_box.style = "background-image: url(\'https://images.unsplash.com/photo-1579285116824-28d564f1f051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80\');background-size:cover;background-position: center;";
-                cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:400px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
+                cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
             }
 
             // browser window title
@@ -130,7 +130,7 @@ function dispatchInfos(json){
 
         
             cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
-            cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:400px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
+            cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
             
             cover_box_device.style = "background-image: url(\'" + track_cover + "');display:flex;align-items:center;justify-content:center;height:706px;margin-top:60px;background-size:cover;background-position: center;";
             cover_box_device.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"text-align:center;height:230px!important;width:400px!important;mix-blend-mode: screen;filter:invert(1);\">";
