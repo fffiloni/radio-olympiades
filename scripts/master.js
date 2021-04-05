@@ -45,12 +45,16 @@ nowPlaying();
 
 function dispatchInfos(json){
     console.log(json);
-    
-    let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    playhead.style = "background:#" + randomColor + "!important;"; 
+
+     
 
     radio_is_live = json.is_live;
     default_cover = json.default_cover;
+
+    track_title = json.title;
+    track_artist = json.artist; 
+    track_cover = json.cover;
+    console.log(track_title + " • " + track_artist)
 
     track_start_time = json.started_at;
     track_end_time = json.end_at;
@@ -60,16 +64,15 @@ function dispatchInfos(json){
 
     if(radio_is_live === false){
         // Radio is streaming from library
-        clearInterval(liveCheck);
-
-        track_title = json.title;
-        track_artist = json.artist; 
-        track_cover = json.cover;
-        console.log(track_title + " • " + track_artist)
+        clearInterval(liveCheck);  
 
         if(track_duration_sec > 60){
             // Radio is streaming a song
             // We update information on DOM
+            
+            // change playhead color
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            playhead.style = "background:#" + randomColor + "!important;";
 
             // song title
             title_box.innerHTML = track_title;
@@ -107,8 +110,10 @@ function dispatchInfos(json){
         // Radio is streaming live from studio
         // Stop rendering playhead moves
         clearInterval(updateTimeline);
-        track_title = json.title;
-        track_artist = json.artist;
+        
+        // change playhead color
+            playhead.style = "background:#" + randomColor + "!important;width:100%!important";
+
         // song title
         title_box.innerHTML = track_title;
 
@@ -129,7 +134,7 @@ function dispatchInfos(json){
             artist_box.innerHTML = track_artist;
         }
         
-        track_cover = json.cover;
+        
 
         
             cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
@@ -139,7 +144,7 @@ function dispatchInfos(json){
             cover_box_device.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"text-align:center;height:230px!important;width:400px!important;mix-blend-mode: screen;filter:invert(1);\">";
             
         // Check if Radio is still streaming live every minutes
-        liveCheck = setInterval(nowPlaying, 60000*5);
+        liveCheck = setInterval(nowPlaying, 60000 * 5);
     }
 }
 
@@ -165,6 +170,7 @@ function movePlayHead(){
         last_tracks.push(keepTracks);
         getLastTracks();
         playWidth = 0;
+        
         setTimeout(nowPlaying, 50);
     }
 
