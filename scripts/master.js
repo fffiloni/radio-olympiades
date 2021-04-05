@@ -45,6 +45,9 @@ nowPlaying();
 
 function dispatchInfos(json){
     console.log(json);
+    
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    playhead.style = "background:#" + randomColor + "!important;"; 
 
     radio_is_live = json.is_live;
     default_cover = json.default_cover;
