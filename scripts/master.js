@@ -4,7 +4,9 @@ let radio_is_live = false;
 let default_cover = false;
 
 let title_box =  document.getElementById("title-box");
+
 let artist_box = document.getElementById("artist-box");
+
 let cover_box = document.getElementById("cover-box");
 let cover_box_device = document.getElementById("cover-device");
 
@@ -99,8 +101,14 @@ function dispatchInfos(json){
             
 
             // song title
+            
             title_box.innerHTML = track_title;
-
+            
+            setTimeout(function(){
+                title_box.style = "opacity: 1;";
+            }, 1000);
+            
+            
             if(track_title.length >= 20){
                 title_box.classList.add('reduce-font-size');
             } else {
@@ -109,6 +117,10 @@ function dispatchInfos(json){
 
             // artist name
             artist_box.innerHTML = track_artist;
+
+            setTimeout(function(){
+                artist_box.style = "opacity: 1;";
+            }, 1000);
 
             // song cover
             if(default_cover === false){
@@ -190,6 +202,9 @@ function movePlayHead(){
     let playPercent = (100 * (timeElapsed / track_duration));
 
     if(playPercent >= 100){
+        title_box.style = "opacity: 0;";
+        artist_box.style = "opacity: 0;";
+        
         let keepTracks = {
             title: track_title,
             artiste: track_artist,
