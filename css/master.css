@@ -95,11 +95,15 @@ h3{
     width: 100%;
     background: black;
     /* border-radius: 10px; */
+    display: flex;
+    justify-content: center;
 }
 
 #playhead{
     /* background: red; */
-    height:4px;
+    height:10px;
+    position: relative;
+    top:4px;
     /* border-radius: 10px; */
 }
 
