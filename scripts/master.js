@@ -199,7 +199,7 @@ function dispatchInfos(json){
 
 function colorizeTimeline(){
     let randomColor = Math.floor(Math.random()*16777215).toString(16);
-    playhead.style = "background:#" + randomColor + "!important;width:100%!important";
+    playhead.style = "background:#" + randomColor + "!important;width:100%!important;transition: background 2s ease-in-out;";
 }
 
 function getRandomInt(max) {
