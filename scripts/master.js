@@ -90,7 +90,7 @@ function dispatchInfos(json){
         // Radio is streaming from library
         clearInterval(multicolor);
         clearTimeout(liveCheck); 
-        liveCheck = setTimeout(watchStream, 10000);
+        liveCheck = setTimeout(watchStream, 30000);
         clearInterval(updateTimeline);
 
         if(track_duration_sec > 60){
@@ -183,7 +183,7 @@ function dispatchInfos(json){
             
         // Check if Radio is still streaming live every minutes
         console.log("setTimeout liveCheck");
-        liveCheck = setTimeout(watchStream, 10000);
+        liveCheck = setTimeout(watchStream, 30000);
         multicolor = setInterval(colorizeTimeline, 1000);
     }
 }
