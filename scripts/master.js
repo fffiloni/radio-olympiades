@@ -47,6 +47,7 @@ function nowPlaying(){
 colorizeTimeline();
 nowPlaying();
 
+
 function watchStream(){
     fetch(stream)
     .then(response => response.json())
@@ -125,8 +126,16 @@ function dispatchInfos(json){
             // song cover
             if(default_cover === false){
                 cover_box_device.style = "background-image: none!important;";
-                cover_box.innerHTML = "<img id=\"big-cover-img\" src=\"" + track_cover + "\">";
+                cover_box.innerHTML = "<img id=\"big-cover-img\" src=\"" + track_cover + "\" crossorigin=\"anonymous\">";
                 cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
+                
+                if(track_artist === "Prince"){
+                    playhead.style = "background:rgb(176 20 214)!important;";
+                    
+                } else {
+                    setTimeout(pickColor, 500);
+                }
+                
             } else {
                 cover_box.style = "background-image: url(\'https://images.unsplash.com/photo-1579285116824-28d564f1f051?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80\');background-size:cover;background-position: center;";
                 cover_box.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
@@ -193,6 +202,32 @@ function colorizeTimeline(){
     playhead.style = "background:#" + randomColor + "!important;width:100%!important";
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+function pickColor(){
+    let colorThief = new ColorThief();
+    //console.log(colorThief);
+    let image = document.getElementById("big-cover-img");
+    let coverColor;
+    let randomIndex = getRandomInt(2);
+    // Make sure image is finished loading
+    if (image.complete) {
+      coverColor = colorThief.getColor(image);
+      console.log(coverColor);
+      console.log("rgb(" + coverColor[0] + "," + coverColor[1] + "," + coverColor[2] + ")");
+      playhead.style = "background:rgb(" + coverColor[0] + "," + coverColor[1] + "," + coverColor[2] + ")!important;width:100%!important;filter:brightness(1.42) saturate(2.5);";
+    } else {
+        image.addEventListener('load', function() {
+        colorThief.getColor(image);
+        console.log(coverColor);
+
+      playhead.style = "background:rgb(" + coverColor[0] + "," + coverColor[1] + "," + coverColor[2] + ")!important;width:100%!important;filter:brightness(1.42) saturate(2.5);";
+      });
+    }
+}
+
 function movePlayHead(){
     playHeadPosition = Date.now();
     timeElapsed = playHeadPosition - (Date.parse(track_start_time) + retard);
@@ -219,7 +254,8 @@ function movePlayHead(){
         getLastTracks();
         playWidth = 0;
         // change playhead color
-        setTimeout(colorizeTimeline, 50);
+        //setTimeout(colorizeTimeline, 50);
+        //setTimeout(pickColor, 50);
         setTimeout(nowPlaying, 50);
     }
 
