@@ -146,8 +146,7 @@ div#player-controls {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 80px 0;
-
+    margin: 50px 0 80px;
   }
   
   #button-container {
