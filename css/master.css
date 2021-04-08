@@ -218,6 +218,14 @@ div#player-controls {
     width: 100vh;
 }
 
+div#cover-filter {
+    width: 100vh;
+    height: 100vh;
+    position: absolute;
+    background: #000;
+    filter: opacity(0.2);
+}
+
 #cover-box > img {
     width: 100vh;
     height: 100vh;
