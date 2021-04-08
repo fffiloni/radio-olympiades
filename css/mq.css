@@ -80,7 +80,7 @@
     text-align: center;
   }
   div#title-box {
-    font-size: 4em;
+    font-size: 3.5em!important;
   }
 }
 
@@ -93,6 +93,24 @@
 
     #cover-device{
       display: none;
+  }
+
+  div#carton-cache {
+    position: absolute;
+    background: yellow;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div#carton-cache > img {
+    mix-blend-mode: multiply;
+  }
+
+  div#main-content{
+    display: none;
   }
 
 }
@@ -125,7 +143,7 @@
     text-align: center;
   }
   div#title-box {
-    font-size: 4em;
+    font-size: 3.5em!important;
   }
 }
 
@@ -140,6 +158,22 @@
   }
   div#title-box {
     font-size: 4em;
+  }
+
+  div#carton-cache {
+    position: absolute;
+    background: yellow;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div#carton-cache > img {
+    mix-blend-mode: multiply;
+  }
+  div#main-content{
+    display: none;
   }
 }
 
@@ -189,6 +223,24 @@
   div#title-box {
     font-size: 5em;
   }
+
+  div#carton-cache {
+    position: absolute;
+    background: yellow;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div#carton-cache > img {
+    mix-blend-mode: multiply;
+  }
+
+  div#main-content{
+    display: none;
+  }
 }
 
 /* ----------- iPhone X ----------- */
@@ -231,5 +283,22 @@
   and (orientation: landscape) { 
     #cover-device{
       display: none!important;
+  }
+
+  div#carton-cache {
+    position: absolute;
+    background: yellow;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div#carton-cache > img {
+    mix-blend-mode: multiply;
+  }
+  div#main-content{
+    display: none;
   }
 }
