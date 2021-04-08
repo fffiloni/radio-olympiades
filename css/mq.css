@@ -76,6 +76,11 @@
       align-items: center;
       justify-content: center;
   }
+  img#cover-device-img {
+    width: 70%;
+    border-radius: 8px;
+    /* margin-top: 60px; */
+}
   div#track-info{
     text-align: center;
   }
@@ -143,6 +148,11 @@
       align-items: center;
       justify-content: center;
   }
+  img#cover-device-img {
+    width: 70%;
+    border-radius: 8px;
+    /* margin-top: 60px; */
+}
   div#track-info{
     text-align: center;
   }
@@ -210,6 +220,11 @@
       align-items: center;
     justify-content: center;
   }
+  img#cover-device-img {
+    width: 90%;
+    border-radius: 8px;
+    /* margin-top: 60px; */
+}
   div#track-info{
     text-align: center;
   }
@@ -277,6 +292,11 @@
       align-items: center;
     justify-content: center;
   }
+  img#cover-device-img {
+    width: 100%;
+    border-radius: 8px;
+    /* margin-top: 60px; */
+}
   div#track-info{
     text-align: center;
   }
