@@ -202,15 +202,12 @@ div#player-controls {
 
   div#title-box {
     font-size: 6em;
-    margin-right: 10px;
     font-weight: 800;
     transition: opacity 0.1s ease-in;
    }
    
    div#artist-box {
-   font-size: 40px;
-     margin-top: 12px;
-     margin-left: 6px;
+     font-size: 40px;
      transition: opacity 0.1s ease-in;
    }
    
