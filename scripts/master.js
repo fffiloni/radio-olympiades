@@ -323,7 +323,7 @@ function giveTime(){
     if(radio_is_live === true){
         welcome.innerHTML = "<span class=\"h-space\"></span>• live •";
     } else {
-        welcome.innerHTML = "<span class=\"h-space\"></span>";
+        welcome.style = "display:none!important;";
         // let time = moment.getHours();
         
         // if(time >= 0 && time < 7){
