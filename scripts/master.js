@@ -51,19 +51,24 @@ nowPlaying();
 function watchStream(){
     fetch(stream)
     .then(response => response.json())
-    .then(json => streamState(json.is_live))
+    .then(json => streamState(json))
     .catch(err => console.log(err)) 
 }
 
 function streamState(state){
-    if (state !== radio_is_live){
-        if(state === true){
+    if (state.is_live !== radio_is_live){
+        if(state.is_live === true){
             console.log("Prise de Direct detectée");
         } else {
             console.log("Direct coupé");
         }
         nowPlaying();
     } else {
+        if(radio_is_live === true){
+            if(state.title !== track_title || state.cover !== track_cover || state.artist !== track_artist){
+                nowPlaying();
+            }
+        }
         clearTimeout(liveCheck); 
         liveCheck = setTimeout(watchStream, 10000);
     }
@@ -162,6 +167,7 @@ function dispatchInfos(json){
         // Stop rendering playhead moves
         
         console.log("Radio is en DIRECT");
+        // playhead.style = "transition: background 2s ease-in-out;";
         
         // song title
         title_box.innerHTML = track_title;
