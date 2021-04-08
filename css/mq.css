@@ -101,8 +101,11 @@
     margin-bottom: 0;
   }
   div#title-box {
-    font-size: 3.5em!important;
+    font-size: 3.5em;
   }
+  .reduce-font-size{
+    font-size: 3em!important;
+}
 
   #main-player {   
     margin-bottom: 110px;
@@ -196,8 +199,11 @@
     margin-bottom: 0;
   }
   div#title-box {
-    font-size: 3.5em!important;
+    font-size: 3.5em;
   }
+  .reduce-font-size{
+    font-size: 3em!important;
+}
   #main-player {   
     margin-bottom: 110px;
   }
@@ -293,6 +299,9 @@
   div#title-box {
     font-size: 4em;
   }
+  .reduce-font-size{
+    font-size: 3em!important;
+}
   #main-player {   
     margin-bottom: 110px;
   }
@@ -388,6 +397,9 @@
   div#title-box {
     font-size: 5em;
   }
+  .reduce-font-size{
+    font-size: 4em!important;
+}
   #main-player {   
     margin-bottom: 110px;
   }
