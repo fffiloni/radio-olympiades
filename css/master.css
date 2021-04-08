@@ -56,10 +56,11 @@ h3{
 #bonjour{
     margin-top: 60px;
     margin-bottom: 80px;
-    display: grid;
-    grid-template-columns: 100px 1fr;
+    display: flex;
+    /* grid-template-columns: 100px 1fr; */
     align-items: center;
-    column-gap: 40px;
+    justify-content: space-between;
+    /* column-gap: 40px; */
     border-bottom: 4px solid;
     padding-bottom: 20px;
 }
@@ -68,11 +69,15 @@ h3{
     font-family: sans-serif;
     padding: 10px 0;
     /* display: none; */
-    text-align: right;
+    text-align: center;
     font-size: 14px;
     font-family: sans-serif;
     font-weight: 600;
-    color: #d00000;
+    color: #fff;
+    background-color: #d00000;
+    padding-right: 16px!important;
+    border-radius: 4px;
+    text-transform: uppercase;
 }
 
 #bonjour > img {
@@ -104,7 +109,6 @@ h3{
     height:10px;
     position: relative;
     top:4px;
-    
     /* border-radius: 10px; */
 }
 
