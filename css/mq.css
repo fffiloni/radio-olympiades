@@ -82,6 +82,10 @@
   div#title-box {
     font-size: 3.5em!important;
   }
+
+  #main-player {   
+    margin-bottom: 110px;
+  }
 }
 
 /* Landscape */
@@ -144,6 +148,9 @@
   }
   div#title-box {
     font-size: 3.5em!important;
+  }
+  #main-player {   
+    margin-bottom: 110px;
   }
 }
 
@@ -209,6 +216,9 @@
   div#title-box {
     font-size: 4em;
   }
+  #main-player {   
+    margin-bottom: 110px;
+  }
 }
 
 /* Landscape */
@@ -272,6 +282,9 @@
   }
   div#title-box {
     font-size: 5em;
+  }
+  #main-player {   
+    margin-bottom: 110px;
   }
 }
 
