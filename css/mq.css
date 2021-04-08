@@ -76,6 +76,7 @@
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
     div#bonjour{
+      margin-bottom: 30px;
       justify-content: center;
     }
     div#bonjour > img {
@@ -171,6 +172,7 @@
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) { 
     div#bonjour{
+      margin-bottom: 30px;
       justify-content: center;
     }
     div#bonjour > img {
@@ -265,6 +267,7 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
     div#bonjour{
+      margin-bottom: 30px;
       justify-content: center;
     }
     div#bonjour > img {
@@ -359,6 +362,7 @@
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
     div#bonjour{
+      margin-bottom: 30px;
       justify-content: center;
     }
     div#bonjour > img {
