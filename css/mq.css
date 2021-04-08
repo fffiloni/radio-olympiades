@@ -67,6 +67,9 @@
     div#time {
       display: none;
     }
+    div#last-tracks{
+      display: none;
+    }
 }
 
 /* Portrait */
@@ -164,6 +167,9 @@
       justify-content:space-around;
     }
     div#time {
+      display: none;
+    }
+    div#last-tracks{
       display: none;
     }
 }
@@ -264,6 +270,9 @@
     div#time {
       display: none;
     }
+    div#last-tracks{
+      display: none;
+    }
 }
 
 /* Portrait */
@@ -360,6 +369,9 @@
       justify-content:space-around;
     }
     div#time {
+      display: none;
+    }
+    div#last-tracks{
       display: none;
     }
 }
