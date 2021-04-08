@@ -225,12 +225,13 @@ function pickColor(){
       console.log("rgb(" + coverColor[0] + "," + coverColor[1] + "," + coverColor[2] + ")");
       playhead.style = "background:rgb(" + coverColor[0] + "," + coverColor[1] + "," + coverColor[2] + ")!important;width:100%!important;filter:brightness(1) saturate(2);";
     } else {
-        image.addEventListener('load', function() {
-        colorThief.getColor(image);
+        setTimeout(function() {
+        let image = document.getElementById("big-cover-img");
+        coverColor = colorThief.getColor(image);
         console.log(coverColor);
 
       playhead.style = "background:rgb(" + coverColor[0] + "," + coverColor[1] + "," + coverColor[2] + ")!important;width:100%!important;filter:brightness(1) saturate(2);";
-      });
+      }, 800);
     }
 }
 
