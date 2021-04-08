@@ -75,6 +75,13 @@
   and (max-device-width: 568px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
+    div#bonjour{
+      justify-content: center;
+    }
+    div#bonjour > img {
+      margin-left: 0;
+      width: 250px!important;
+    }
 
     #cover-device{
       display: flex!important;
@@ -163,6 +170,13 @@
   and (max-device-width: 667px) 
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) { 
+    div#bonjour{
+      justify-content: center;
+    }
+    div#bonjour > img {
+      margin-left: 0;
+      width: 250px!important;
+    }
     #cover-device{
       display: flex!important;
       text-align: center;
@@ -250,6 +264,13 @@
   and (max-device-width: 736px) 
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
+    div#bonjour{
+      justify-content: center;
+    }
+    div#bonjour > img {
+      margin-left: 0;
+      width: 250px!important;
+    }
     #cover-device{
       display: flex!important;
       text-align: center;
@@ -337,6 +358,13 @@
   and (max-device-width: 812px) 
   and (-webkit-min-device-pixel-ratio: 3)
   and (orientation: portrait) { 
+    div#bonjour{
+      justify-content: center;
+    }
+    div#bonjour > img {
+      margin-left: 0;
+      width: 250px!important;
+    }
     #cover-device{
       display: flex!important;
       text-align: center;
