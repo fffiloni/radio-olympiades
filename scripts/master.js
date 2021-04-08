@@ -99,7 +99,7 @@ function dispatchInfos(json){
         liveCheck = setTimeout(watchStream, 30000);
         clearInterval(updateTimeline);
 
-        if(track_duration_sec > 60){
+        if(track_duration_sec > 20){
             // Radio is streaming a song
             // We update information on DOM
             console.log("is a song");
