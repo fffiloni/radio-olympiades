@@ -135,7 +135,7 @@ function dispatchInfos(json){
                 cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
                 
                 if(track_artist === "Prince"){
-                    playhead.style = "background:rgb(176 20 214)!important;";
+                    playhead.style = "background:rgb(85 58 99)!important;";
                     
                 } else {
                     setTimeout(pickColor, 500);
