@@ -3,6 +3,10 @@ body{
     margin: 0 auto;
 }
 
+div#carton-cache{
+    display: none;
+}
+
 h2, h3{
     margin: 0;
 }
