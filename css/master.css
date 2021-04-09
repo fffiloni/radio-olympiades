@@ -72,7 +72,7 @@ h3{
 #bonjour > h1{
     font-family: sans-serif;
     padding: 10px 0;
-    /* display: none; */
+    display: none;
     text-align: center;
     font-size: 14px;
     font-family: sans-serif;
