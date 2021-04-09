@@ -233,7 +233,7 @@ div#cover-filter {
 }
 
 div#last-tracks {
-    display: flex;
+    display: none;
     flex-direction: column-reverse;
 }
 
