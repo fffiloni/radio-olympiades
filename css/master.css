@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+
 body{
-    font-family: sans-serif;
+    font-family: "Lato", sans-serif;
     margin: 0 auto;
 }
 
@@ -147,6 +149,7 @@ div#player-controls {
     justify-content: space-between;
     align-items: center;
     margin: 50px 0 80px;
+
   }
   
   #button-container {
@@ -206,7 +209,7 @@ div#player-controls {
    }
    
    div#artist-box {
-     font-size: 40px;
+   font-size: 40px;
      transition: opacity 0.1s ease-in;
    }
    
@@ -262,5 +265,3 @@ div#last-tracks {
   #cover-device{
       display: none!important;
   }
-
-
