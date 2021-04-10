@@ -26,6 +26,46 @@
     }
 }
 
+/* Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .right{
+      width: 0;
+    }
+    div#bonjour{
+      margin-top: 60px;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+    #bonjour > img {
+      margin-left: 0;
+    }
+    div#bonjour > h1{
+      display: none!important;
+    }
+    #cover-device{
+      display: flex!important;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      height: 600px;
+    }
+    img#cover-device-img {
+      width: 70%;
+      border-radius: 8px;
+      /* margin-top: 60px; */
+    }
+    div#title-box {
+      font-size: 5em;
+    }
+    .reduce-font-size{
+      font-size: 3em!important;
+    }
+}
+
 /* ----------- iPad Pro 10.5" ----------- */
 
 /* Portrait and Landscape */
@@ -35,6 +75,46 @@
   and (-webkit-min-device-pixel-ratio: 2) {
     .right{
         width: 0;
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 1112px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    .right{
+      width: 0;
+    }
+    div#bonjour{
+      margin-top: 60px;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+    #bonjour > img {
+      margin-left: 0;
+    }
+    div#bonjour > h1{
+      display: none!important;
+    }
+    #cover-device{
+      display: flex!important;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      height: 600px;
+    }
+    img#cover-device-img {
+      width: 70%;
+      border-radius: 8px;
+      /* margin-top: 60px; */
+    }
+    div#title-box {
+      font-size: 5em;
+    }
+    .reduce-font-size{
+      font-size: 3em!important;
     }
 }
 
