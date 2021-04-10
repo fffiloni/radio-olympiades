@@ -202,18 +202,21 @@ div#player-controls {
     text-align: center;
 }
 
-  div#title-box {
+div#title-box {
     font-size: 6em;
     font-weight: 800;
     transition: opacity 0.1s ease-in;
-   }
-   
-   div#artist-box {
-   font-size: 40px;
-     transition: opacity 0.1s ease-in;
-   }
-   
-   div#cover-box {
+    line-height: 1em;
+}
+
+div#artist-box {
+    font-size: 40px;
+    transition: opacity 0.1s ease-in;
+    line-height: 1em;
+    margin: 20px 0;
+}
+
+div#cover-box {
     display: flex;
     align-items: center;
     justify-content: center;
