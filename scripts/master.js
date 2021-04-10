@@ -314,6 +314,16 @@ function affichZero(nombre) {
     
 function giveTime(){
     let moment = new Date();
+    
+    //timecode on landscapes
+    let tc_heure = document.getElementById("tc-hours");
+    let tc_minutes = document.getElementById("tc-minutes");
+    let tc_secondes = document.getElementById("tc-seconds");
+
+    tc_heure.innerHTML = affichZero(moment.getHours());
+    tc_minutes.innerHTML = affichZero(moment.getMinutes());
+    tc_secondes.innerHTML = affichZero(moment.getSeconds());
+
     //console.log(heure + ":" + minutes);
     let heure = document.getElementById("time-hours");
     let minutes = document.getElementById("time-minutes");
