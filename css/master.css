@@ -9,6 +9,14 @@ div#carton-cache{
     display: none;
 }
 
+div#tc-time {
+    font-size: 6em;
+    font-weight: 900;
+    border-top: 2px solid;
+    margin-top: 24px;
+    padding-top: 24px;
+}
+
 h2, h3{
     margin: 0;
 }
