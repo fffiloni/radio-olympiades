@@ -196,8 +196,8 @@ function dispatchInfos(json){
         cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
         cover_box.innerHTML = "<div id=\"cover-filter\"></div><img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
         
-        cover_box_device.style = "background-image: url(\'" + track_cover + "');display:flex;align-items:center;justify-content:center;height:706px;margin-top:60px;background-size:cover;background-position: center;";
-        cover_box_device.innerHTML = "<img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"text-align:center;height:230px!important;width:400px!important;mix-blend-mode: screen;filter:invert(1);\">";
+        // cover_box_device.style = "background-image: url(\'" + track_cover + "');display:flex;align-items:center;justify-content:center;height:706px;margin-top:60px;background-size:cover;background-position: center;";
+        cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
         
         // Check if Radio is still streaming live every minutes
         console.log("setTimeout liveCheck");
@@ -335,7 +335,7 @@ function giveTime(){
     let welcome = document.getElementById("bonjour-h1");
 
     if(radio_is_live === true){
-        welcome.style = "display:inline!important;";
+        welcome.style = "display:inline;";
         welcome.innerHTML = "<span class=\"h-space\"></span>• live •";
     } else {
         welcome.style = "display:none!important;";
