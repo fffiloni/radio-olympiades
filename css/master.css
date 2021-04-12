@@ -171,14 +171,23 @@ div#player-controls {
   }
   
   div#button {
-  align-items: center;
-  color: black;
-  cursor: pointer;
-  display: flex;
-  font-size: 120px;
-  justify-content: center;
-  
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-size: 120px;
+    justify-content: center; 
   }
+
+  div#volume-button {
+    align-items: center;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    font-size: 60px;
+    justify-content: center;
+    margin-left: 40px;
+}
   
   .pause {
   background-position: 0 -100%;
