@@ -246,6 +246,9 @@
     div#last-tracks{
       display: none;
     }
+    div#volume-button {
+      display: none;
+    }
 }
 
 /* Portrait */
@@ -351,6 +354,9 @@
       display: none;
     }
     div#last-tracks{
+      display: none;
+    }
+    div#volume-button {
       display: none;
     }
 }
@@ -459,6 +465,9 @@
     div#last-tracks{
       display: none;
     }
+    div#volume-button {
+      display: none;
+    }
 }
 
 /* Portrait */
@@ -563,6 +572,9 @@
       display: none;
     }
     div#last-tracks{
+      display: none;
+    }
+    div#volume-button {
       display: none;
     }
 }
