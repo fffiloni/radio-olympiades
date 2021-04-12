@@ -354,6 +354,23 @@ function giveTime(){
 
 }
 
+function muteAudio(){
+    let audio_muted = document.getElementById('player');
+    let vmute_icon = document.getElementById('unmute-button');
+    let vup_icon = document.getElementById('mute-button');
+    if (audio_muted.muted === false){
+        audio_muted.muted = true;
+        vmute_icon.classList.add('hide');
+        vup_icon.classList.remove( 'hide' );
+        console.log("Son coupé");
+    } else {
+        audio_muted.muted = false;
+        vmute_icon.classList.remove('hide');
+        vup_icon.classList.add( 'hide' );
+        console.log("son rétabli");
+    }
+}
+
     
 window.onload = function() {
     let giveMeTime = setInterval(giveTime, 1000);   
@@ -398,16 +415,16 @@ window.onload = function() {
     }, false );
 
     aud.addEventListener( 'ended',
-    function() {
-        changeBTNS();
-        aud.load();
+        function() {
+            changeBTNS();
+            aud.load();
         }, false );
 
     function changeBTNS() {
-    but.classList.remove( 'pause' );
-    but.classList.add( 'play' );
-    statusPlay.classList.remove('hide');
-    statusPause.classList.add('hide');
-    test = true;
+        but.classList.remove( 'pause' );
+        but.classList.add( 'play' );
+        statusPlay.classList.remove('hide');
+        statusPause.classList.add('hide');
+        test = true;
     }
 }( document ));
