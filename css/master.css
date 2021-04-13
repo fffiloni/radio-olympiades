@@ -184,9 +184,9 @@ div#player-controls {
     color: black;
     cursor: pointer;
     display: flex;
-    font-size: 60px;
+    font-size: 40px;
     justify-content: center;
-    margin-left: 40px;
+    margin-left: 30px;
 }
   
   .pause {
