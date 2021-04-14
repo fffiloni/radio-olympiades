@@ -18,6 +18,7 @@ let track_start_time = null;
 let track_end_time = null;
 let track_duration = null;
 
+let playing = false;
 let playHeadPosition = null;
 let timeElapsed = null;
 let timeRemain = null;
@@ -293,14 +294,8 @@ function visual(){
     const c = document.getElementById("canvas");
     let w = document.getElementById("visualizer");
     c.setAttribute("width", w.offsetWidth);
-    
-    let wave = new Wave();
 
-    wave.fromElement("player","canvas", {
-        stroke: 2,
-        type: "bars",
-        colors: ["black"]
-    });
+    
 
 }
 
@@ -354,6 +349,47 @@ function giveTime(){
 
 }
 
+function visual(){
+    const c = document.getElementById("canvas");
+    let w = document.getElementById("visualizer");
+    c.setAttribute("width", w.offsetWidth);
+    
+    let wave = new Wave();
+
+    wave.fromElement("player","canvas", {
+        stroke: 2,
+        type: "bars",
+        colors: ["black"]
+    });
+
+}
+
+let intervalFRQ;
+
+function radioONOFF(){
+    let statusPlay = document.getElementById('play-button');
+    let statusPause = document.getElementById('pause-button');
+    let audio = document.getElementById('player');
+    if (playing === false){
+        playing = true;
+        statusPlay.classList.add('hide');
+        statusPause.classList.remove( 'hide' );
+        console.log("Radio allumee");
+        audio.load();
+               
+        audio.play();
+        visual();
+
+    } else {
+        playing = false;
+        statusPlay.classList.remove('hide');
+        statusPause.classList.add( 'hide' );
+        console.log("Radio eteinte");
+        audio.pause();
+        clearInterval(intervalFRQ);
+    }
+}
+
 function muteAudio(){
     let audio_muted = document.getElementById('player');
     let vmute_icon = document.getElementById('unmute-button');
@@ -371,57 +407,7 @@ function muteAudio(){
     }
 }
 
-
-
-
-( function( d ) {
-'use strict';
-
-    var test = true,
-        statusPlay = d.querySelector('#play-button'),
-        statusPause = d.querySelector('#pause-button'),
-        but = d.querySelector( '#button' ),
-        aud = d.querySelector( '#player' );
-        aud.classList.add( 'remove' );
-        d.querySelector( '#button-container' ).classList.remove( 'hide' );
-
-    but.addEventListener('click',
-    function() {
-        if(userInteract === false){
-            visual();
-            userInteract = true;
-        }
-
-        if ( test === true ) {
-
-
-            but.classList.add( 'pause' );
-            but.classList.remove( 'play' );
-            statusPlay.classList.add('hide');
-            statusPause.classList.remove('hide');
-            test = false;
-            aud.load();
-            aud.play();
-        }
-        else {
-            changeBTNS();
-            aud.pause();
-            aud.load();
-
-        }
-    }, false );
-
-    aud.addEventListener( 'ended',
-        function() {
-            changeBTNS();
-            aud.load();
-        }, false );
-
-    function changeBTNS() {
-        but.classList.remove( 'pause' );
-        but.classList.add( 'play' );
-        statusPlay.classList.remove('hide');
-        statusPause.classList.add('hide');
-        test = true;
-    }
-}( document ));
+    
+window.onload = function() {
+    let giveMeTime = setInterval(giveTime, 1000);   
+}
