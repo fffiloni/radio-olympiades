@@ -296,7 +296,7 @@ function affichZero(nombre) {
     return nombre < 10 ? '0' + nombre : nombre;
 }
 
-var giveMeTime = setInterval(giveTime, 1000);
+
 
 function giveTime() {
     var moment = new Date();
@@ -336,6 +336,8 @@ function giveTime() {
         // }
     }
 }
+
+var giveMeTime = setInterval(giveTime, 1000);
 
 function visual() {
     var c = document.getElementById("canvas");
