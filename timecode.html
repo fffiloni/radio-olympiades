@@ -44,22 +44,22 @@
     return nombre < 10 ? '0' + nombre : nombre;
     
 }
-        function giveTime(){
-    let moment = new Date();
-    //console.log(heure + ":" + minutes);
-    let heure = document.getElementById("time-hours");
-    let minutes = document.getElementById("time-minutes");
-    let secondes = document.getElementById("time-seconds");
-    
-    // let test = 9;
-    heure.innerHTML = affichZero(moment.getHours());
-    minutes.innerHTML = affichZero(moment.getMinutes());
-    secondes.innerHTML = affichZero(moment.getSeconds());
+    function giveTime(){
+      var moment = new Date();
+      //console.log(heure + ":" + minutes);
+      var heure = document.getElementById("time-hours");
+      var minutes = document.getElementById("time-minutes");
+      var secondes = document.getElementById("time-seconds");
+
+      // let test = 9;
+      heure.innerHTML = affichZero(moment.getHours());
+      minutes.innerHTML = affichZero(moment.getMinutes());
+      secondes.innerHTML = affichZero(moment.getSeconds());
     
 
 }
 
-      let giveMeTime = setInterval(giveTime, 1000);
+      var giveMeTime = setInterval(giveTime, 1000);
     
     
     </script>
