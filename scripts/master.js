@@ -1,5 +1,3 @@
-"use strict";
-
 var stream = 'https://api.radioking.io/widget/radio/radio-olympiades/track/current';
 var retard = 10000;
 var radio_is_live = false;
@@ -298,6 +296,8 @@ function affichZero(nombre) {
     return nombre < 10 ? '0' + nombre : nombre;
 }
 
+var giveMeTime = setInterval(giveTime, 1000);
+
 function giveTime() {
     var moment = new Date();
 
@@ -392,7 +392,3 @@ function muteAudio() {
         console.log("son rétabli");
     }
 }
-
-window.onload = function () {
-    var giveMeTime = setInterval(giveTime, 1000);
-};
