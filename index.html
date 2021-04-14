@@ -36,8 +36,6 @@
     <link rel="stylesheet" href="css/odometer.css">
   
     <!-- <link rel="stylesheet" href="css-propre/master-mq.css"> -->
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
-    <script type="text/javascript" src="scripts/fetch.js"></script>
     <script type="text/javascript" src="scripts/wave.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
@@ -83,7 +81,7 @@
             </div>
             <div id="player-controls">
               <div id="button-container" class="">
-                <div id="button" class="">
+                <div id="button" class="" onclick="javascript: radioONOFF();">
                   <i id="play-button" class="fas fa-play-circle"></i>
                   <i id="pause-button" class="hide fas fa-pause-circle"></i>
                 </div>
@@ -98,8 +96,10 @@
             </div>
 
             <!-- Lecteur audio caché -->
-            <audio id="player" controls="" class="remove" crossorigin playsinline="">
-              <source src="https://www.radioking.com/play/radio-olympiades" type="audio/mpeg">
+            <audio id="player" controls="" class="remove" crossorigin="anonmyous" playsinline="">
+              <!-- <source src="https://www.radioking.com/play/radio-olympiades" type="audio/mpeg"> -->
+              <source src="https://www.radioking.com/play/radio-olympiades" type="audio/mpeg"> 
+              
             </audio>
           </div>
         
@@ -125,7 +125,6 @@
     <script type="text/javascript" src="scripts/odometer.js"></script>
     
     <script>
-      let giveMeTime = setInterval(giveTime, 1000);
       var videoElement = document.getElementById("main-content");
   
       function toggleFullScreen() {
