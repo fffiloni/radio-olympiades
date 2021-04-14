@@ -371,12 +371,7 @@ function muteAudio(){
     }
 }
 
-    
 
-window.addEventListener('load', 
-    function() {
-    let giveMeTime = setInterval(giveTime, 1000);   
-}, false);
 
 
 ( function( d ) {
