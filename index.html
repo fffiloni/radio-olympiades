@@ -35,9 +35,11 @@
     <link rel="stylesheet" href="css/mq.css">
     <link rel="stylesheet" href="css/odometer.css">
   
-    <!-- <link rel="stylesheet" href="css-propre/master-mq.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <script type="text/javascript" src="scripts/fetch.js"></script>
     <script type="text/javascript" src="scripts/wave.js"></script>
-   
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    
     
   </head>
 
@@ -84,7 +86,7 @@
                   <i id="play-button" class="fas fa-play-circle"></i>
                   <i id="pause-button" class="hide fas fa-pause-circle"></i>
                 </div>
-                <div id="volume-button" class="" onmousedown="javascript: muteAudio();">
+                <div id="volume-button" class="" ontouchstart="javascript: muteAudio();">
                   <i id="mute-button" class="hide fas fa-volume-mute"></i>
                   <i id="unmute-button" class="fas fa-volume-up"></i>
                 </div>
