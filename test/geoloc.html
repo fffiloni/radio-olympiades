@@ -40,7 +40,7 @@ function success(position) {
   var distance = getDistanceFromLatLng(latitude, longitude, latPlace, longPlace);
   console.log(distance);
   var locationdiv = document.getElementById("located");
-                locationdiv.innerHTML = distance + "m";
+                locationdiv.innerHTML = Math.round(distance*1000) + "m";
   
 }
 
