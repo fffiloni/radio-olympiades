@@ -19,8 +19,13 @@ const mapLink = document.querySelector('#map-link');
 
 mapLink.href = '';
 mapLink.textContent = '';
-
+var geo_options = {
+  enableHighAccuracy: true,
+  maximumAge        : 1000,
+  timeout           : 20000
+};  
 function success(position) {
+    
   const latitude  = position.coords.latitude;
   const longitude = position.coords.longitude;
 
@@ -37,7 +42,7 @@ if (!navigator.geolocation) {
   status.textContent = 'Geolocation is not supported by your browser';
 } else {
   status.textContent = 'Locating…';
-  navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(success, error, geo_options);
 }
 
 }
