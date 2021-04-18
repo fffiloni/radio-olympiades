@@ -37,7 +37,7 @@ function success(position) {
   mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
   mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
 
-  var distance = getDistanceFromLatLng(48.826349, 2.361675, latPlace, longPlace);
+  var distance = getDistanceFromLatLng(latitude, longitude, latPlace, longPlace);
   console.log(distance);
   var locationdiv = document.getElementById("located");
                 locationdiv.innerHTML = distance + "m";
