@@ -5,6 +5,7 @@
     </head>
     <body>
         <div id="located"></div>
+        <div id="square"></div>
         <button id = "find-me">Montrer ma localisation</button><br/>
 <p id = "status"></p>
 <a id = "map-link" target="_blank"></a>
@@ -43,7 +44,16 @@ function success(position) {
   var locationdiv = document.getElementById("located");
   locationdiv.innerHTML = Math.round(distance*1000) + "m • altitude: " + Math.round(position.coords.altitude) + " m <br/>" +
                           "speed: " + position.coords.speed;
-  
+                          let checkdist = Math.round(distance * 1000);
+  if(checkdist < 22){
+      console.log("plus petit")
+    let square = document.getElementById("square");
+    square.style = "display: none;"
+  } else {
+    console.log("plus grand")
+    let square = document.getElementById("square");
+    square.style = "display: block;background: red;width: 20px;height: 20px;"
+  }
 }
 
 function error() {
