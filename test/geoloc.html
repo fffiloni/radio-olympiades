@@ -41,7 +41,8 @@ function success(position) {
   var distance = getDistanceFromLatLng(latitude, longitude, latPlace, longPlace);
   console.log(distance);
   var locationdiv = document.getElementById("located");
-  locationdiv.innerHTML = Math.round(distance*1000) + "m • altitude: " + position.coords.altitude;
+  locationdiv.innerHTML = Math.round(distance*1000) + "m • altitude: " + Math.round(position.coords.altitude) + " m <br/>" +
+                          "speed: " + position.coords.speed;
   
 }
 
