@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head> 
+          
+    </head>
+    <body>
+        <div id="located"></div>
+        <script type="text/javascript">
+            if ("geolocation" in navigator) {
+            /* la géolocalisation est disponible */
+            function success(position) {
+                faireQqc(position.coords.latitude, position.coords.longitude);
+}
+
+function error() {
+  alert('Sorry, no position available.');
+}
+
+const options = {
+  enableHighAccuracy: true,
+  maximumAge: 30000,
+  timeout: 27000
+};
+
+const watchID = navigator.geolocation.watchPosition(success, error, options);
+            console.log("geo coucou");
+            } else {
+            /* la géolocalisation n'est pas disponible */
+            }
+            function faireQqc(lat, long){
+                console.log(lat + " " + long)
+                var locationdiv = document.getElementById("located");
+                locationdiv.innerHTML = lat + " " + long;
+            }
+        </script>
+    </body>
+</html>
