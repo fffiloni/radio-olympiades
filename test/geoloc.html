@@ -45,7 +45,7 @@ function success(position) {
   locationdiv.innerHTML = Math.round(distance*1000) + "m • altitude: " + Math.round(position.coords.altitude) + " m <br/>" +
                           "speed: " + position.coords.speed;
                           let checkdist = Math.round(distance * 1000);
-  if(checkdist < 22){
+  if(checkdist < 25){
       console.log("plus petit")
     let square = document.getElementById("square");
     square.style = "display: none;"
