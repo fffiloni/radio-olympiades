@@ -33,6 +33,7 @@ function success(position) {
   const longitude = position.coords.longitude;
  
     console.log("geo coucou");
+    console.log(position);
   status.textContent = '';
   mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
   mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
@@ -40,7 +41,7 @@ function success(position) {
   var distance = getDistanceFromLatLng(latitude, longitude, latPlace, longPlace);
   console.log(distance);
   var locationdiv = document.getElementById("located");
-                locationdiv.innerHTML = Math.round(distance*1000) + "m";
+  locationdiv.innerHTML = Math.round(distance*1000) + "m • altitude: " + position.coords.altitude;
   
 }
 
