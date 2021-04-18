@@ -4,7 +4,7 @@
           
     </head>
     <body>
-        <!-- <div id="located"></div> -->
+        <div id="located"></div>
         <button id = "find-me">Montrer ma localisation</button><br/>
 <p id = "status"></p>
 <a id = "map-link" target="_blank"></a>
@@ -17,6 +17,9 @@
 const status = document.querySelector('#status');
 const mapLink = document.querySelector('#map-link');
 
+const latPlace = 48.825804;
+const longPlace = 2.365227;
+
 mapLink.href = '';
 mapLink.textContent = '';
 var geo_options = {
@@ -28,10 +31,17 @@ function success(position) {
     
   const latitude  = position.coords.latitude;
   const longitude = position.coords.longitude;
-
+ 
+    console.log("geo coucou");
   status.textContent = '';
   mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
   mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+
+  var distance = getDistanceFromLatLng(48.826349, 2.361675, latPlace, longPlace);
+  console.log(distance);
+  var locationdiv = document.getElementById("located");
+                locationdiv.innerHTML = distance + "m";
+  
 }
 
 function error() {
@@ -42,9 +52,24 @@ if (!navigator.geolocation) {
   status.textContent = 'Geolocation is not supported by your browser';
 } else {
   status.textContent = 'Locating…';
-  navigator.geolocation.getCurrentPosition(success, error, geo_options);
+  navigator.geolocation.watchPosition(success, error, geo_options);
 }
 
+}
+
+function getDistanceFromLatLng(lat1, lng1, lat2, lng2, miles) { // miles optional
+  if (typeof miles === "undefined"){miles=false;}
+  function deg2rad(deg){return deg * (Math.PI/180);}
+  function square(x){return Math.pow(x, 2);}
+  var r=6371; // radius of the earth in km
+  lat1=deg2rad(lat1);
+  lat2=deg2rad(lat2);
+  var lat_dif=lat2-lat1;
+  var lng_dif=deg2rad(lng2-lng1);
+  var a=square(Math.sin(lat_dif/2))+Math.cos(lat1)*Math.cos(lat2)*square(Math.sin(lng_dif/2));
+  var d=2*r*Math.asin(Math.sqrt(a));
+  if (miles){return d * 0.621371;} //return miles
+  else{return d;} //return km
 }
 
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
