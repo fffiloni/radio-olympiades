@@ -46,7 +46,7 @@ function success(position) {
   var distanceCosmos = getDistanceFromLatLng(latitude, longitude, latCosmos, longCosmos);
   console.log(distance);
   var locationdiv = document.getElementById("located");
-  locationdiv.innerHTML = Math.round(distance*1000) + "m de la radio • altitude: " + Math.round(position.coords.altitude) + " m <br/>" +
+  locationdiv.innerHTML = Math.round(distance*1000) + "m de la radio<br/>" +
                           Math.round(distanceCosmos*1000) + "m du Cosmos <br />" +
                         "speed: " + position.coords.speed;
                           let checkdist = Math.round(distance * 1000);
