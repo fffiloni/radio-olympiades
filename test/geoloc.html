@@ -18,8 +18,11 @@
 const status = document.querySelector('#status');
 const mapLink = document.querySelector('#map-link');
 
-const latPlace = 48.826367;
-const longPlace = 2.361997;
+const latRadio = 48.823326;
+const longRadio = 2.366743;
+
+const latCosmos = 48.825822;
+const longCosmos = 2.365259;
 
 mapLink.href = '';
 mapLink.textContent = '';
@@ -39,13 +42,15 @@ function success(position) {
   mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
   mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
 
-  var distance = getDistanceFromLatLng(latitude, longitude, latPlace, longPlace);
+  var distance = getDistanceFromLatLng(latitude, longitude, latRadio, longRadio);
+  var distanceCosmos = getDistanceFromLatLng(latitude, longitude, latCosmos, longCosmos);
   console.log(distance);
   var locationdiv = document.getElementById("located");
-  locationdiv.innerHTML = Math.round(distance*1000) + "m • altitude: " + Math.round(position.coords.altitude) + " m <br/>" +
-                          "speed: " + position.coords.speed;
+  locationdiv.innerHTML = Math.round(distance*1000) + "m de la radio • altitude: " + Math.round(position.coords.altitude) + " m <br/>" +
+                          Math.round(distanceCosmos*1000) + "m du Cosmos <br />" +
+                        "speed: " + position.coords.speed;
                           let checkdist = Math.round(distance * 1000);
-  if(checkdist < 25){
+  if(checkdist < 22){
       console.log("plus petit")
     let square = document.getElementById("square");
     square.style = "display: none;"
