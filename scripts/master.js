@@ -30,6 +30,9 @@ var timelineWidth = timeline.offsetWidth - playhead.offsetWidth;
 
 var userInteract = false;
 
+var princeCover;
+var intervalPrince;
+
 // setInterval variables
 var updateTimeline = undefined;
 var liveCheck = undefined;
@@ -191,11 +194,22 @@ function dispatchInfos(json) {
             artist_box.innerHTML = track_artist;
         }
 
-        cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
-        cover_box.innerHTML = "<div id=\"cover-filter\"></div><img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
+        if(track_title === "Purple Night"){
 
-        // cover_box_device.style = "background-image: url(\'" + track_cover + "');display:flex;align-items:center;justify-content:center;height:706px;margin-top:60px;background-size:cover;background-position: center;";
-        cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
+            intervalPrince = setInterval(randombg, 60000);
+
+            cover_box.style = "background-image: url(\'" + princeCover + "');background-size:cover;background-position: center;";
+            cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + princeCover + "\">";
+        } else {
+            clearInterval(intervalPrince);
+            cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
+            cover_box.innerHTML = "<div id=\"cover-filter\"></div><img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
+
+            // cover_box_device.style = "background-image: url(\'" + track_cover + "');display:flex;align-items:center;justify-content:center;height:706px;margin-top:60px;background-size:cover;background-position: center;";
+            cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
+        }
+
+        
 
         // Check if Radio is still streaming live every minutes
         console.log("setTimeout liveCheck");
@@ -203,6 +217,8 @@ function dispatchInfos(json) {
         multicolor = setInterval(colorizeTimeline, 1000);
     }
 }
+
+
 
 function colorizeTimeline() {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -296,7 +312,7 @@ function affichZero(nombre) {
     return nombre < 10 ? '0' + nombre : nombre;
 }
 
-
+var giveMeTime = setInterval(giveTime, 1000);
 
 function giveTime() {
     var moment = new Date();
@@ -336,8 +352,6 @@ function giveTime() {
         // }
     }
 }
-
-var giveMeTime = setInterval(giveTime, 1000);
 
 function visual() {
     var c = document.getElementById("canvas");
@@ -394,3 +408,19 @@ function muteAudio() {
         console.log("son rétabli");
     }
 }
+
+
+    
+function randombg(){
+    var random= Math.floor(Math.random() * 20) + 0;
+    var bigSize = ["https://www.radioolympiades.fr/images/1.jpg", 
+                    "https://www.radioolympiades.fr/images/2.jpg",
+                    "https://www.radioolympiades.fr/images/3.jpg", 
+                    "https://www.radioolympiades.fr/images/4.jpg", 
+                    "https://www.radioolympiades.fr/images/5.jpg"];
+    princeCover=bigSize[random];
+    
+  }
+  
+  
+  
