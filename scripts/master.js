@@ -214,7 +214,12 @@ function dispatchInfos(json) {
         // Check if Radio is still streaming live every minutes
         console.log("setTimeout liveCheck");
         liveCheck = setTimeout(watchStream, 30000);
-        multicolor = setInterval(colorizeTimeline, 1000);
+        if (track_artist === "Prince") {
+            playhead.style = "background:rgb(85 58 99)!important;";
+        } else {
+            multicolor = setInterval(colorizeTimeline, 1000);
+        }
+        
     }
 }
 
