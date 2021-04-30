@@ -194,19 +194,19 @@ function dispatchInfos(json) {
             artist_box.innerHTML = track_artist;
         }
 
-        if(track_title === "Purple Night"){
+        //if(track_title === "Purple Night"){
 
-            intervalPrince = setInterval(randombg, 60000);
+         //   intervalPrince = setInterval(randombg, 60000);
 
             
-        } else {
+        //} else {
             clearInterval(intervalPrince);
             cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
             cover_box.innerHTML = "<div id=\"cover-filter\"></div><img id=\"big-logo-img\" src=\"/images/logo-RO-solo.jpg\" style=\"width:700px!important;height:initial!important;mix-blend-mode: screen;filter:invert(1);\">";
 
             // cover_box_device.style = "background-image: url(\'" + track_cover + "');display:flex;align-items:center;justify-content:center;height:706px;margin-top:60px;background-size:cover;background-position: center;";
             cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + track_cover + "\">";
-        }
+       // }
 
         
 
