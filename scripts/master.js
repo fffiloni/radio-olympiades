@@ -198,8 +198,7 @@ function dispatchInfos(json) {
 
             intervalPrince = setInterval(randombg, 60000);
 
-            cover_box.style = "background-image: url(\'" + princeCover + "');background-size:cover;background-position: center;";
-            cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + princeCover + "\">";
+            
         } else {
             clearInterval(intervalPrince);
             cover_box.style = "background-image: url(\'" + track_cover + "');background-size:cover;background-position: center;";
@@ -424,7 +423,8 @@ function randombg(){
                     "https://www.radioolympiades.fr/images/4.jpg", 
                     "https://www.radioolympiades.fr/images/5.jpg"];
     princeCover=bigSize[random];
-    
+    cover_box.style = "background-image: url(\'" + princeCover + "');background-size:cover;background-position: center;";
+    cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + princeCover + "\">";
   }
   
   
