@@ -248,7 +248,8 @@ div#cover-filter {
     width: 100vh;
     height: 100vh;
     position: absolute;
-    background: #000;
+    /* background: #000; */
+    background: #960dac;
     filter: opacity(0.2);
 }
 
