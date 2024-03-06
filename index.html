@@ -37,7 +37,8 @@
   
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
     <script type="text/javascript" src="scripts/fetch.js"></script>
-    <script type="text/javascript" src="scripts/wave.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
+    <!--<script type="text/javascript" src="scripts/wave.js"></script>-->
     <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     
     
@@ -71,7 +72,7 @@
             </div>
             <div id="visual-container">
               <div id="visualizer">
-                <canvas id="canvas" height="100"></canvas>
+                <canvas id="canvas" height="300px" width="800px"></canvas>
               </div>
             </div>
             
@@ -82,11 +83,11 @@
             </div>
             <div id="player-controls">
               <div id="button-container" class="">
-                <div id="button" class="" onclick="javascript: radioONOFF();">
+                <div id="button" class="" onmousedown="javascript: radioONOFF();">
                   <i id="play-button" class="fas fa-play-circle"></i>
                   <i id="pause-button" class="hide fas fa-pause-circle"></i>
                 </div>
-                <div id="volume-button" class="" onclick="javascript: muteAudio();">
+                <div id="volume-button" class="" onmousedown="javascript: muteAudio();">
                   <i id="mute-button" class="hide fas fa-volume-mute"></i>
                   <i id="unmute-button" class="fas fa-volume-up"></i>
                 </div>
