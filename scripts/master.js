@@ -1,5 +1,5 @@
 var stream = 'https://api.radioking.io/widget/radio/radio-olympiades/track/current';
-var retard = 30000;
+var retard = 36000;
 var radio_is_live = false;
 var default_cover = false;
 
