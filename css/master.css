@@ -224,13 +224,13 @@ div#player-controls {
 div#title-box {
     font-size: 6em;
     font-weight: 800;
-    transition: opacity 0.1s ease-in;
+    transition: opacity 1s ease-in;
     line-height: 1em;
 }
 
 div#artist-box {
     font-size: 40px;
-    transition: opacity 0.1s ease-in;
+    transition: opacity 1s ease-in;
     line-height: 1em;
     margin: 20px 0;
 }
@@ -249,7 +249,7 @@ div#cover-filter {
     height: 100vh;
     position: absolute;
     background: #000;
-    /*background: #960dac;*/
+    /* background: #960dac; */
     filter: opacity(0.2);
 }
 
