@@ -1,5 +1,5 @@
 var stream = 'https://api.radioking.io/widget/radio/radio-olympiades/track/current';
-var retard = 10000;
+var retard = 30000;
 var radio_is_live = false;
 var default_cover = false;
 
@@ -97,7 +97,7 @@ function dispatchInfos(json) {
     track_start_time = json.started_at;
     track_end_time = json.end_at;
     track_duration = Date.parse(track_end_time) - Date.parse(track_start_time);
-
+    //track_duration = json.duration;
     var track_duration_sec = track_duration / 1000;
 
     if (radio_is_live === false) {
@@ -258,7 +258,7 @@ function pickColor() {
 
 function movePlayHead() {
     playHeadPosition = Date.now();
-    timeElapsed = playHeadPosition - (Date.parse(track_start_time) + retard);
+    timeElapsed = (playHeadPosition + retard) - (Date.parse(track_start_time));
     timeRemain = Date.parse(track_end_time) - playHeadPosition;
 
     var playWidth = timelineWidth * (timeElapsed / track_duration);
@@ -283,7 +283,7 @@ function movePlayHead() {
         // change playhead color
         //setTimeout(colorizeTimeline, 50);
         //setTimeout(pickColor, 50);
-        setTimeout(nowPlaying, 50);
+        setTimeout(nowPlaying, 1000);
     }
 
     playhead.style.width = playPercent + "%";
