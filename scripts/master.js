@@ -161,8 +161,9 @@ function dispatchInfos(json) {
             // Radio is streaming a jingle
             // We check the stream until it return a song
             console.log("on jingle");
+            console.log(json.duration)
             clearTimeout(liveCheck);
-            nowPlaying();
+            setTimeout(nowPlaying, 6000);
         }
     } else if (radio_is_live === true) {
         // Radio is streaming live from studio
@@ -283,7 +284,7 @@ function movePlayHead() {
         // change playhead color
         //setTimeout(colorizeTimeline, 50);
         //setTimeout(pickColor, 50);
-        setTimeout(nowPlaying, 1000);
+        setTimeout(nowPlaying, 6000);
     }
 
     playhead.style.width = playPercent + "%";
