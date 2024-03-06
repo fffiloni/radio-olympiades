@@ -304,12 +304,6 @@ function getLastTracks() {
     }
 }
 
-function visual() {
-    var c = document.getElementById("canvas");
-    var w = document.getElementById("visualizer");
-    c.setAttribute("width", w.offsetWidth);
-}
-
 function affichZero(nombre) {
     // cette fonction prend en paramètre un nombre
     // si ce nombre est inférieur à 10, on affiche 0 + ce nombre
@@ -366,10 +360,26 @@ function visual() {
     var wave = new Wave();
 
     wave.fromElement("player", "canvas", {
-        stroke: 2,
+        stroke: 4,
         type: "bars",
         colors: ["black"]
     });
+}
+
+function visualNew() {
+    let audioElement = document.querySelector("#player");
+    let canvasElement = document.querySelector("#canvas");
+    let wave = new Wave(audioElement, canvasElement);
+
+    // Intermediate example: add an animation with options
+    wave.addAnimation(new wave.animations.Lines({
+        lineWidth: 2,
+        lineColor: "black",
+        count: 96,
+        frequencyBands: "base",
+        bottom: true,
+        rounded: true
+    }));
 }
 
 var intervalFRQ;
@@ -386,7 +396,7 @@ function radioONOFF() {
         audio.load();
 
         audio.play();
-        visual();
+        visualNew();
     } else {
         playing = false;
         statusPlay.classList.remove('hide');
