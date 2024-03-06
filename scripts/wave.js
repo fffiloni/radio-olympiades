@@ -404,7 +404,7 @@ var Wave = (function () {
     var w = functionContext.w;
 
     // console.log(data)
-    var point_count = 64;
+    var point_count = 63;
     var percent = h / 255;
     var increase = w / 64;
     var breakpoint = Math.floor(point_count / options.colors.length);
