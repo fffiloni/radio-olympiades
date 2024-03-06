@@ -53,7 +53,7 @@ function nowPlaying() {
         return console.log(err);
     });
 }
-if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+if (navigator.platform === 'iPad' || navigator.platform === 'iPhone' ) {
     console.log("This is an iOS device.");
     isIOS = true;
 } else {
