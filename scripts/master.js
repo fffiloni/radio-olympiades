@@ -42,6 +42,8 @@ var multicolor = undefined;
 // Last tracks
 var last_tracks = [];
 
+var isIOS = undefined;
+
 function nowPlaying() {
     fetch(stream).then(function (response) {
         return response.json();
@@ -50,6 +52,13 @@ function nowPlaying() {
     })["catch"](function (err) {
         return console.log(err);
     });
+}
+if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    console.log("This is an iOS device.");
+    isIOS = true;
+} else {
+    console.log("This is not an iOS device!");
+    isIOS = false;
 }
 colorizeTimeline();
 nowPlaying();
@@ -259,7 +268,12 @@ function pickColor() {
 
 function movePlayHead() {
     playHeadPosition = Date.now();
-    timeElapsed = (playHeadPosition + retard) - (Date.parse(track_start_time));
+    if (isIOS == true) {
+        timeElapsed = (playHeadPosition) - (Date.parse(track_start_time));
+    } else {
+        timeElapsed = (playHeadPosition + retard) - (Date.parse(track_start_time));
+    }
+    
     timeRemain = Date.parse(track_end_time) - playHeadPosition;
 
     var playWidth = timelineWidth * (timeElapsed / track_duration);
@@ -373,9 +387,9 @@ function visualNew() {
 
     // Intermediate example: add an animation with options
     wave.addAnimation(new wave.animations.Lines({
-        lineWidth: 2,
+        lineWidth: 4,
         lineColor: "black",
-        count: 96,
+        count: 63,
         frequencyBands: "base",
         bottom: true,
         rounded: true
