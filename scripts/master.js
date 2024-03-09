@@ -42,7 +42,8 @@ var multicolor = undefined;
 // Last tracks
 var last_tracks = [];
 
-var isIOS = undefined;
+var isIOS = false;
+var isIPAD = false;
 
 function nowPlaying() {
     fetch(stream).then(function (response) {
@@ -53,12 +54,16 @@ function nowPlaying() {
         return console.log(err);
     });
 }
-if (navigator.platform === 'iPhone' ) {
+if (navigator.platform === 'iPhone' || navigator.platform === 'iPad') {
     console.log("This is an iOS device.");
-    isIOS = true;
+    isIOS= true;
+    if (navigator.platform === 'iPad'){
+        isIPAD = true;
+    }
 } else {
     console.log("This is not an iOS device!");
     isIOS = false;
+    isIPAD = false;
 }
 colorizeTimeline();
 nowPlaying();
@@ -269,7 +274,11 @@ function pickColor() {
 function movePlayHead() {
     playHeadPosition = Date.now();
     if (isIOS == true) {
-        timeElapsed = (playHeadPosition - 6000) - (Date.parse(track_start_time));
+        if (isIPAD == false){    
+            timeElapsed = (playHeadPosition - 6000) - (Date.parse(track_start_time));
+        } else {
+            timeElapsed = (playHeadPosition) - (Date.parse(track_start_time));
+        }
     } else {
         timeElapsed = (playHeadPosition + retard) - (Date.parse(track_start_time));
     }
