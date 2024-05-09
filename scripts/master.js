@@ -280,7 +280,7 @@ function movePlayHead() {
             timeElapsed = (playHeadPosition - retard) - (Date.parse(track_start_time));
         }
     } else {
-        timeElapsed = (playHeadPosition) - (Date.parse(track_start_time)) + 90000;
+        timeElapsed = (playHeadPosition) - (Date.parse(track_start_time)) + 88000;
     }
     
     timeRemain = Date.parse(track_end_time) - playHeadPosition;
@@ -307,7 +307,7 @@ function movePlayHead() {
         // change playhead color
         //setTimeout(colorizeTimeline, 50);
         //setTimeout(pickColor, 50);
-        setTimeout(nowPlaying, 6000);
+        setTimeout(nowPlaying, 5000);
     }
 
     playhead.style.width = playPercent + "%";
