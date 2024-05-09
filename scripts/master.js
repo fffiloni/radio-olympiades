@@ -277,7 +277,7 @@ function movePlayHead() {
         if (isIPAD == false){    
             timeElapsed = (playHeadPosition - 6000) - (Date.parse(track_start_time));
         } else {
-            timeElapsed = (playHeadPosition - retard) - (Date.parse(track_start_time));
+            timeElapsed = (playHeadPosition) - (Date.parse(track_start_time)) - 90000;
         }
     } else {
         timeElapsed = (playHeadPosition) - (Date.parse(track_start_time)) + 88000;
