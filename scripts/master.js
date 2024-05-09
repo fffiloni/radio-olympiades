@@ -307,7 +307,7 @@ function movePlayHead() {
         // change playhead color
         //setTimeout(colorizeTimeline, 50);
         //setTimeout(pickColor, 50);
-        setTimeout(nowPlaying, 10000);
+        setTimeout(nowPlaying, 2000);
     }
 
     playhead.style.width = playPercent + "%";
