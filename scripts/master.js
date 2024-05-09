@@ -289,8 +289,8 @@ function movePlayHead() {
     var playPercent = 100 * (timeElapsed / track_duration);
 
     if (playPercent >= 100) {
-        title_box.style = "opacity: 0;";
-        artist_box.style = "opacity: 0;";
+        //title_box.style = "opacity: 0;";
+        //artist_box.style = "opacity: 0;";
 
         var keepTracks = {
             title: track_title,
