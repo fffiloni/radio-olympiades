@@ -280,7 +280,7 @@ function movePlayHead() {
             timeElapsed = (playHeadPosition) - (Date.parse(track_start_time)) - 90000;
         }
     } else {
-        timeElapsed = (playHeadPosition) - (Date.parse(track_start_time)) + 88000;
+        timeElapsed = (playHeadPosition) - (Date.parse(track_start_time));
     }
     
     timeRemain = Date.parse(track_end_time) - playHeadPosition;
