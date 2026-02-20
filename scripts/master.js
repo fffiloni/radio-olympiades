@@ -170,7 +170,7 @@ function dispatchInfos(json) {
             // browser window title
             document.title = track_title + " • " + track_artist + " | Radio Olympiades";
 
-            updateTimeline = setInterval(movePlayHead, 20);
+            updateTimeline = setInterval(movePlayHead, 100);
         } else {
             // Radio is streaming a jingle
             // We check the stream until it return a song
@@ -450,12 +450,12 @@ function muteAudio() {
 
     
 function randombg(){
-    var random= Math.floor(Math.random() * 20) + 0;
     var bigSize = ["https://www.radioolympiades.fr/images/1.jpg", 
                     "https://www.radioolympiades.fr/images/2.jpg",
                     "https://www.radioolympiades.fr/images/3.jpg", 
                     "https://www.radioolympiades.fr/images/4.jpg", 
                     "https://www.radioolympiades.fr/images/5.jpg"];
+    var random = Math.floor(Math.random() * bigSize.length)
     princeCover=bigSize[random];
     cover_box.style = "background-image: url(\'" + princeCover + "');background-size:cover;background-position: center;";
     cover_box_device.innerHTML = "<img id=\"cover-device-img\" src=\"" + princeCover + "\">";
